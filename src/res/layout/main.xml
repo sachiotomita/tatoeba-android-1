@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
-    <TextView
+<TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World, Welcome"
-            />
-</LinearLayout>
+            android:layout_height="fill_parent">
+        <Spinner
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight=".45"
+                android:layout_gravity="left"
+                android:layout_column="0"
+                android:spinnerMode="dialog"
+                android:id="@id/srcLanguage"
+                android:entries="@array/language_array"
+                android:prompt="@string/srcLanguage_prompt"
+                />
 
+        <Spinner
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight=".45"
+                android:layout_gravity="right"
+                android:layout_column="0"
+                android:spinnerMode="dialog"
+                android:id="@id/destLanguage"
+                android:entries="@array/language_array"
+                android:prompt="@string/destLanguage_prompt"
+                />
+
+    </TableRow>
+</TableLayout>

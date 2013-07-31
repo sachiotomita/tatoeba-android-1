@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tatoeba Android</string>
+
+    <string name="srcLanguage_prompt">From</string>
+    <string name="destLanguage_prompt">To</string>
+
+    <string-array name="language_array">
+        <item>..</item>
+        <item>English</item>
+        <item>Hebrew</item>
+        <item>Estonian</item>
+        <item>Finnish</item>
+        <item>Dutch</item>
+    </string-array>
+
+
+
 </resources>
