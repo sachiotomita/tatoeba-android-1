@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <TableLayout
+        android:stretchColumns="1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
     <TableRow
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
         <Spinner
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_weight=".45"
+                android:layout_weight="1"
                 android:layout_gravity="left"
                 android:layout_column="0"
                 android:spinnerMode="dialog"
@@ -20,9 +24,9 @@
         <Spinner
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_weight=".45"
+                android:layout_weight="1"
                 android:layout_gravity="right"
-                android:layout_column="0"
+                android:layout_column="2"
                 android:spinnerMode="dialog"
                 android:id="@id/destLanguage"
                 android:entries="@array/language_array"
@@ -30,4 +34,23 @@
                 />
 
     </TableRow>
+
+
+
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_column="0"
+                android:text="@string/defaultSearchText"
+                android:id="@+id/searchInput" />
+
+    </TableRow>
+
+
+
 </TableLayout>

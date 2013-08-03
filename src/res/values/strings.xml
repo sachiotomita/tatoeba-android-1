@@ -3,7 +3,7 @@
     <string name="app_name">Tatoeba Android</string>
 
     <string name="srcLanguage_prompt">From</string>
-    <string name="destLanguage_prompt">To</string>
+    <string name="destLanguage_prompt">To</string><string name="defaultSearchText">Your search items</string>
 
     <string-array name="language_array">
         <item>..</item>
