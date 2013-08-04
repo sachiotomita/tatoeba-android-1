@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="srcLanguage" type="id">srcLanguage</item>
+    <item name="destLanguage" type="id">destLanguage</item>
+</resources>
