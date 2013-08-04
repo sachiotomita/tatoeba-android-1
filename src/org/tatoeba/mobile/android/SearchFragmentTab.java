@@ -3,7 +3,7 @@ package org.tatoeba.mobile.android;
 /**
  * Created with IntelliJ IDEA.
  * This file is a part of "Tatoeba for Android" project. See LICENSE in the project root for license.
- * Author: leo
+ * Author: dipdowel
  * Date: 3.08.13
  * Time: 23:14
  */
