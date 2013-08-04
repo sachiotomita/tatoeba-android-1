@@ -1,0 +1,138 @@
+
+
+    <TableLayout
+            android:layout_span="3"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <Space
+                    android:layout_width="20px"
+                    android:layout_height="20px"
+                    android:id="@+id/space" android:layout_column="3"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_column="0">
+
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_column="0"
+                    android:layout_weight="0.2"
+                    android:text="@string/From" />
+
+            <Spinner
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_column="1"
+                    android:spinnerMode="dialog"
+                    android:id="@id/srcLanguage"
+                    android:entries="@array/language_array"
+                    android:prompt="@string/srcLanguage_prompt"
+                    android:layout_weight="0.8" />
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:layout_column="0">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_column="0"
+                    android:layout_weight="0.2"
+                    android:text="@string/To" />
+            <Spinner
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_column="1"
+                    android:spinnerMode="dialog"
+                    android:id="@id/destLanguage"
+                    android:entries="@array/language_array"
+                    android:prompt="@string/destLanguage_prompt"
+                    android:layout_weight="0.8"
+                    />
+        </TableRow>
+
+        <!-- **************************************************************************************** -->
+        <!--
+        <TableRow
+
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <EditText
+                    android:layout_column="0"
+                    android:layout_span="2"
+                    android:layout_weight="0.5"
+                    android:inputType="text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New EditText"
+                    android:id="@+id/editText" />
+
+            <Button
+                    android:layout_column="1"
+                    android:layout_weight="0.5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button"/>
+
+        </TableRow>
+        -->
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <Space
+                    android:layout_width="20px"
+                    android:layout_height="20px"
+                    android:id="@+id/space" android:layout_column="3"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <EditText
+                    android:layout_column="0"
+                    android:layout_span="2"
+                    android:layout_weight="1"
+                    android:inputType="text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/searchBoxGreeting"
+                    android:id="@+id/editText" />
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <Button
+                    android:layout_column="0"
+                    android:layout_span="2"
+                    android:layout_weight="1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/searchButtonLabel"
+                    android:id="@+id/button"/>
+
+        </TableRow>
+
+
+        <!-- **************************************************************************************** -->
+
+    </TableLayout>

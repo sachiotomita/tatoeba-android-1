@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">tatoeba4android</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Fragment Tabs</string>
+
+    <string name="From">From:</string>
+    <string name="To">To:</string>
+
+    <string name="searchTabCaption">Search</string>
+    <string name="browseTabCaption">Browse</string>
+
+
+    <string name="srcLanguage_prompt">From</string>
+    <string name="destLanguage_prompt">To</string><string name="defaultSearchText">Your search items</string>
+    <string name="searchButtonLabel">Search</string>
+    <string name="searchBoxGreeting">your words here...</string>
+    <string name="sentenceRequestBoxGreeting">Enter the sentence ID</string>
+    <string name="randomSentenceButtonLabel">Fetch a random sentence</string>
+
+    <string-array name="language_array">
+        <item>..</item>
+        <item>English</item>
+        <item>Hebrew</item>
+        <item>Estonian</item>
+        <item>Finnish</item>
+        <item>Dutch</item>
+    </string-array>
+
+</resources>
