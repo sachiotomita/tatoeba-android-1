@@ -2,4 +2,5 @@
 <resources>
     <item name="srcLanguage" type="id">srcLanguage</item>
     <item name="destLanguage" type="id">destLanguage</item>
+    <item name="tempTextField" type="id">tempTextField</item>
 </resources>

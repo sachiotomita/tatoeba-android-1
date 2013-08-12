@@ -17,6 +17,7 @@
     <string name="searchBoxGreeting">your words here...</string>
     <string name="sentenceRequestBoxGreeting">Enter the sentence ID</string>
     <string name="randomSentenceButtonLabel">Fetch a random sentence</string>
+    <string name="resultsTabCaption">Results</string>
 
     <string-array name="language_array">
         <item>..</item>
