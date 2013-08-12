@@ -13,6 +13,10 @@ import java.net.URL;
  */
 
 
+/**
+ * This class is intended to query the local and the remote tatoeba databases in the background
+ * and update the UI correspondingly.
+ */
 public class QueryTatoebaTask extends AsyncTask<URL, Integer, Long>
 {
 

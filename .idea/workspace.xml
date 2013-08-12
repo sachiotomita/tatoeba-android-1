@@ -24,20 +24,13 @@
     </option>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" name="Default" comment="* Added a tab, titled &quot;Results&quot;. It has to display  the search/browse result data.&#10;* Clicking the &quot;Search&quot; button in the &quot;Search&quot; fragment now takes you to &quot;Results&quot;&#10;* ResultsFragmentTab currently causes a fatal error, the problematic code is commented out&#10;&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/QueryTatoebaTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/ResultsFragmentTab.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/results_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/SearchFragmentTab.java" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/SearchFragmentTab.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/WelcomeActivity.java" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/WelcomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/ids.xml" afterPath="$PROJECT_DIR$/res/values/ids.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/search_fragment.xml" afterPath="$PROJECT_DIR$/res/layout/search_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+    <list default="true" id="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/QueryTatoebaTask.java" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/QueryTatoebaTask.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tatoeba4android.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376342686476" ignored="false" />
+    <file path="/Dummy.txt" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376342723165" ignored="false" />
     <file path="/WelcomeActivity.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376342082161" ignored="false" />
     <file path="/SearchFragmentTab.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376342139743" ignored="false" />
     <file path="$PROJECT_DIR$/gen/org/tatoeba/mobile/android/R.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1375563003713" ignored="false" />
@@ -51,7 +44,7 @@
     <file path="/fragment.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376336065083" ignored="false" />
     <file path="/ResultsFragmentTab.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376342486546" ignored="false" />
     <file path="/ids.xml" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376336449933" ignored="false" />
-    <file path="/QueryTatoebaTask.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376336706792" ignored="false" />
+    <file path="/QueryTatoebaTask.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376342933123" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,10 +117,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchFragmentTab.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SearchFragmentTab.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/SearchFragmentTab.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="77" selection-start="2099" selection-end="2099" vertical-scroll-proportion="0.5136842">
+            <state line="63" column="77" selection-start="2099" selection-end="2099" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#1732#2125#0" expanded="true" />
                 <element signature="e#2114#2115#0" expanded="true" />
@@ -147,10 +140,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QueryTatoebaTask.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="QueryTatoebaTask.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/QueryTatoebaTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
+            <state line="17" column="37" selection-start="422" selection-end="422" vertical-scroll-proportion="0.608421">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -249,12 +242,12 @@
         <option value="$PROJECT_DIR$/res/layout/browse_fragment.xml" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/BrowseFragmentTab.java" />
         <option value="$PROJECT_DIR$/res/values/ids.xml" />
-        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/QueryTatoebaTask.java" />
         <option value="$PROJECT_DIR$/res/layout/results_fragment.xml" />
         <option value="$PROJECT_DIR$/res/layout/search_fragment.xml" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/WelcomeActivity.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/ResultsFragmentTab.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/SearchFragmentTab.java" />
+        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/QueryTatoebaTask.java" />
       </list>
     </option>
   </component>
@@ -609,7 +602,11 @@
       <created>1375577439649</created>
       <updated>1375577439649</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="* Added a tab, titled &quot;Results&quot;. It has to display  the search/browse result data.&#10;* Clicking the &quot;Search&quot; button in the &quot;Search&quot; fragment now takes you to &quot;Results&quot;&#10;* ResultsFragmentTab currently causes a fatal error, the problematic code is commented out&#10;&#10;">
+      <created>1376342738295</created>
+      <updated>1376342738296</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -825,21 +822,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/QueryTatoebaTask.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/SearchFragmentTab.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
+        <state line="63" column="77" selection-start="2099" selection-end="2099" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1732#2125#0" expanded="true" />
+            <element signature="e#2114#2115#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/SearchFragmentTab.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/QueryTatoebaTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="77" selection-start="2099" selection-end="2099" vertical-scroll-proportion="0.5136842">
+        <state line="17" column="37" selection-start="422" selection-end="422" vertical-scroll-proportion="0.608421">
           <folding>
-            <element signature="e#1732#2125#0" expanded="true" />
-            <element signature="e#2114#2115#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
