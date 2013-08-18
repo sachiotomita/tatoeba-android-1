@@ -1,4 +1,4 @@
-package org.tatoeba.mobile.android;
+package org.tatoeba.mobile.android.fragments;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,38 +8,38 @@ package org.tatoeba.mobile.android;
  * Time: 23:14
  */
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.app.ActionBar.Tab;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import org.tatoeba.mobile.android.R;
+import org.tatoeba.mobile.android.WelcomeActivity;
+import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
 
-public class SearchFragmentTab extends Fragment implements ActionBar.TabListener {
-
-    private Fragment mFragment;
+public class SearchFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener {
 
     private EditText _searchBox;
     private Button _searchButton;
-    private ActionBar _ActionBar;
-
-    private boolean _firstTouch = true;
-    private Activity _activity;
+    protected boolean _firstTouch = true;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         // Get the view from search_fragment.xml
-        _activity = getActivity();
         _activity.setContentView(R.layout.search_fragment);
+
+
+
         _searchBox = (EditText) _activity.findViewById(R.id.editText);
         _searchButton = (Button) _activity.findViewById(R.id.searchButton_searchFragment);
 
-        _ActionBar = this.getActivity().getActionBar();
+
 
         // remove the greeting text from the search box
         _searchBox.setOnFocusChangeListener(new View.OnFocusChangeListener()
@@ -61,7 +61,8 @@ public class SearchFragmentTab extends Fragment implements ActionBar.TabListener
             {
                 String searchString = SearchFragmentTab.this._searchBox.getText().toString();
                 ((WelcomeActivity) SearchFragmentTab.this._activity).currentSearchString = searchString;
-                SearchFragmentTab.this._ActionBar.setSelectedNavigationItem(2);
+                //SearchFragmentTab.this._actionBar.setSelectedNavigationItem(2);
+                switchTab(MAIN_TABS.RESULTS);
             }
         });
 

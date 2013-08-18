@@ -1,4 +1,4 @@
-package org.tatoeba.mobile.android;
+package org.tatoeba.mobile.android.fragments;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,27 +12,25 @@ package org.tatoeba.mobile.android;
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.ActionBar.Tab;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar;
 import android.view.View;
 import android.widget.EditText;
+import org.tatoeba.mobile.android.R;
 
-public class BrowseFragmentTab extends Fragment implements ActionBar.TabListener {
-
-    private Fragment mFragment;
+public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener {
 
     private EditText _sentenceIdBox;
-    private boolean _firstTouch = true;
+    protected boolean _firstTouch = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from browse_fragmentagment.xml
 
-        Activity activity = getActivity();
-        activity.setContentView(R.layout.browse_fragment);
-        _sentenceIdBox = (EditText) activity.findViewById(R.id.sentenceIdInputBox);
+
+        _activity.setContentView(R.layout.browse_fragment);
+        _sentenceIdBox = (EditText) _activity.findViewById(R.id.sentenceIdInputBox);
 
         // remove the greeting text from the sentence ID box
         _sentenceIdBox.setOnFocusChangeListener(new View.OnFocusChangeListener()

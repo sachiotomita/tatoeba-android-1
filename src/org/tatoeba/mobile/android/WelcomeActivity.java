@@ -12,6 +12,9 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
 import android.app.Activity;
+import org.tatoeba.mobile.android.fragments.BrowseFragmentTab;
+import org.tatoeba.mobile.android.fragments.ResultsFragmentTab;
+import org.tatoeba.mobile.android.fragments.SearchFragmentTab;
 
 public class WelcomeActivity extends Activity {
     // Declare Tab Variable
