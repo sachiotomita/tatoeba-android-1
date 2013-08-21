@@ -24,14 +24,18 @@
     </option>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/models/tables/Sentences.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/TatoebaDatabase.java" />
+    <list default="true" id="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" name="Default" comment="* Early groundwork for the &quot;Sentences&quot; model.&#10;* Early groundwork for the DataBase entry point.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/au/com/bytecode/opencsv/CSVParser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/au/com/bytecode/opencsv/CSVReader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/db_init_sentences.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/db_init_users.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/QueryTatoebaTask.java" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/QueryTatoebaTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/ResultsFragmentTab.java" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/ResultsFragmentTab.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tatoeba4android.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376853293004" ignored="false" />
+    <file path="/Dummy.txt" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377060717970" ignored="false" />
     <file path="/WelcomeActivity.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376342082161" ignored="false" />
     <file path="/SearchFragmentTab.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376813423473" ignored="false" />
     <file path="$PROJECT_DIR$/gen/org/tatoeba/mobile/android/R.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1375563003713" ignored="false" />
@@ -43,13 +47,16 @@
     <file path="/BrowseFragmentTab.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376814535648" ignored="false" />
     <file path="/results_fragment.xml" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376825960968" ignored="false" />
     <file path="/fragment.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376814063505" ignored="false" />
-    <file path="/ResultsFragmentTab.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376826128597" ignored="false" />
+    <file path="/ResultsFragmentTab.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377064296413" ignored="false" />
     <file path="/ids.xml" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376336449933" ignored="false" />
     <file path="/QueryTatoebaTask.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376826102382" ignored="false" />
     <file path="/MAIN_TABS.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376810539900" ignored="false" />
     <file path="/TatoebaMainFragment.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376813864954" ignored="false" />
     <file path="/Sentences.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376854415796" ignored="false" />
     <file path="/TatoebaDatabase.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376858341139" ignored="false" />
+    <file path="/db_init.txt" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377061147417" ignored="false" />
+    <file path="/db_init.csv" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377061176119" ignored="false" />
+    <file path="/CSVReader.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377061824978" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,16 +121,9 @@
         <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/SearchFragmentTab.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="65" column="40" selection-start="2092" selection-end="2092" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TatoebaMainFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/TatoebaMainFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="546" selection-end="546" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <element signature="e#1661#2102#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,10 +131,8 @@
       <file leaf-file-name="QueryTatoebaTask.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/QueryTatoebaTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="41" selection-start="786" selection-end="786" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="34" column="19" selection-start="908" selection-end="908" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,17 +141,24 @@
         <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/models/tables/Sentences.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="18" column="79" selection-start="538" selection-end="551" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TatoebaDatabase.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TatoebaDatabase.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/TatoebaDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="82" selection-start="378" selection-end="378" vertical-scroll-proportion="0.33843797">
+            <state line="10" column="3" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_init_users.csv" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/db_init_users.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="55" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -168,45 +173,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResultsFragmentTab.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ResultsFragmentTab.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/ResultsFragmentTab.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="50" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="72" column="16" selection-start="1913" selection-end="1913" vertical-scroll-proportion="1.1762964">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2203#2211#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BrowseFragmentTab.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/BrowseFragmentTab.java">
+      <file leaf-file-name="CSVParser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/au/com/bytecode/opencsv/CSVParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="73" selection-start="900" selection-end="900" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="273" column="8" selection-start="9776" selection-end="9845" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#6993#7001#0" expanded="true" />
+              </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_fragment.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/search_fragment.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="37" selection-start="5216" selection-end="5228" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="results_fragment.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/results_fragment.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="60" selection-start="1896" selection-end="1896" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -228,22 +214,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/MAIN_TABS.java" />
-        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/BrowseFragmentTab.java" />
-        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/ResultsFragmentTab.java" />
-        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/SearchFragmentTab.java" />
-        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/TatoebaMainFragment.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/TatoebaMainFragment.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/main_fragments/TatoebaMainFragment.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/frags/TatoebaMainFragment.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/TatoebaMainFragment.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/BrowseFragmentTab.java" />
         <option value="$PROJECT_DIR$/res/layout/results_fragment.xml" />
-        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/ResultsFragmentTab.java" />
-        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/QueryTatoebaTask.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/models/Sentences.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/models/tables/Sentences.java" />
         <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/TatoebaDatabase.java" />
+        <option value="$PROJECT_DIR$/assets/db_init.txt" />
+        <option value="$PROJECT_DIR$/assets/db_init.csv" />
+        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/QueryTatoebaTask.java" />
+        <option value="$PROJECT_DIR$/src/au/com/bytecode/opencsv/CSVReader.java" />
+        <option value="$PROJECT_DIR$/src/au/com/bytecode/opencsv/CSVParser.java" />
+        <option value="$PROJECT_DIR$/assets/db_init_sentences.csv" />
+        <option value="$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/ResultsFragmentTab.java" />
       </list>
     </option>
   </component>
@@ -279,7 +265,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -336,6 +321,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tatoeba4android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tatoeba-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tatoeba4android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tatoeba-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="opencsv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -407,8 +432,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tatoeba4android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tatoeba-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -436,6 +476,8 @@
       <recent name="org.tatoeba.mobile.android" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\tatoeba\dev\mobile\android\tatoeba-android\src\au\com\bytecode\opencsv" />
+      <recent name="E:\tatoeba\dev\mobile\android\tatoeba-android\assets" />
       <recent name="E:\tatoeba\dev\mobile\android\tatoeba-android\res\layout" />
     </key>
   </component>
@@ -632,7 +674,15 @@
       <created>1376827405858</created>
       <updated>1376827405858</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="* Early groundwork for the &quot;Sentences&quot; model.&#10;* Early groundwork for the DataBase entry point.">
+      <created>1376858404058</created>
+      <updated>1376858404058</updated>
+    </task>
+    <task id="LOCAL-00007" summary="* Early groundwork for the &quot;Sentences&quot; model.&#10;* Early groundwork for the DataBase entry point.">
+      <created>1376858569121</created>
+      <updated>1376858569121</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -654,8 +704,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25581396" sideWeight="0.8055236" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19447641" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2619339" sideWeight="0.80667436" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19332567" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.6006904" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.6006904" order="2" side_tool="false" content_ui="tabs" />
@@ -707,7 +757,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Classes moved to packages.&#10;* The Tab fragments now have a single superclass to abstract the common features.&#10;* Tab IDs are now stored in Enum.&#10;* Search string is now passed to the &quot;Results&quot; fragment successfully. &#10;&#10;* A few additions to the background task. Still a long way to go though.&#10;&#10;&#10;&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Early groundwork for the &quot;Sentences&quot; model.&#10;* Early groundwork for the DataBase entry point." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -726,6 +776,7 @@
     <MESSAGE value="* Added a tab, titled &quot;Results&quot;. It has to display  the search/browse result data.&#10;* Clicking the &quot;Search&quot; button in the &quot;Search&quot; fragment now takes you to &quot;Results&quot;&#10;* ResultsFragmentTab currently causes a fatal error, the problematic code is commented out&#10;&#10;" />
     <MESSAGE value="* An early stub for the background access to online and local services." />
     <MESSAGE value="* Classes moved to packages.&#10;* The Tab fragments now have a single superclass to abstract the common features.&#10;* Tab IDs are now stored in Enum.&#10;* Search string is now passed to the &quot;Results&quot; fragment successfully. &#10;&#10;* A few additions to the background task. Still a long way to go though.&#10;&#10;&#10;&#10;&#10;" />
+    <MESSAGE value="* Early groundwork for the &quot;Sentences&quot; model.&#10;* Early groundwork for the DataBase entry point." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -735,32 +786,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/values/ids.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="54" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/WelcomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="18" selection-start="703" selection-end="703" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/Android/adt-bundle-windows-x86_64/sdk/sources/android-15/android/app/Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1096" column="50" selection-start="41871" selection-end="41889" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/BrowseFragmentTab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="73" selection-start="900" selection-end="900" vertical-scroll-proportion="0.0">
@@ -770,16 +795,7 @@
     </entry>
     <entry file="file://F:/Android/adt-bundle-windows-x86_64/sdk/sources/android-15/android/os/AsyncTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="590" column="25" selection-start="23324" selection-end="23324" vertical-scroll-proportion="0.3323124">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/SearchFragmentTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="40" selection-start="2092" selection-end="2092" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="590" column="25" selection-start="23324" selection-end="23324" vertical-scroll-proportion="0.3323124" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/TatoebaMainFragment.java">
@@ -801,9 +817,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/models/tables/Sentences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="79" selection-start="538" selection-end="551" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/results_fragment.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="60" selection-start="1896" selection-end="1896" vertical-scroll-proportion="0.0">
+        <state line="57" column="62" selection-start="1723" selection-end="1723" vertical-scroll-proportion="0.44680852">
           <folding />
         </state>
       </provider>
@@ -813,7 +836,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/search_fragment.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="37" selection-start="5216" selection-end="5228" vertical-scroll-proportion="0.0">
+        <state line="122" column="124" selection-start="4849" selection-end="4849" vertical-scroll-proportion="0.5319149">
           <folding />
         </state>
       </provider>
@@ -821,35 +844,69 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/ResultsFragmentTab.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/SearchFragmentTab.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="50" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="65" column="40" selection-start="2092" selection-end="2092" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1661#2102#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/QueryTatoebaTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="41" selection-start="786" selection-end="786" vertical-scroll-proportion="0.0">
+        <state line="34" column="19" selection-start="908" selection-end="908" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/au/com/bytecode/opencsv/CSVParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="273" column="8" selection-start="9776" selection-end="9845" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#6993#7001#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/models/tables/Sentences.java">
+    <entry file="file://$PROJECT_DIR$/assets/db_init_users.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="79" selection-start="538" selection-end="551" vertical-scroll-proportion="0.0">
+        <state line="0" column="55" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/db_init_sentences.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="102" selection-start="278" selection-end="278" vertical-scroll-proportion="0.07798165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/au/com/bytecode/opencsv/CSVReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="48" selection-start="1702" selection-end="1702" vertical-scroll-proportion="0.06422018">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4271#4279#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/TatoebaDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="82" selection-start="378" selection-end="378" vertical-scroll-proportion="0.33843797">
+        <state line="10" column="3" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/ResultsFragmentTab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="16" selection-start="1913" selection-end="1913" vertical-scroll-proportion="1.1762964">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2203#2211#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -32,7 +32,7 @@ public class QueryTatoebaTask extends AsyncTask<String, Integer, Long>
     {
         int count = searchText.length;
 
-        int MAX = 200000; // Integer.MAX_VALUE
+        int MAX = 1000; // Integer.MAX_VALUE
 
         for (int i = 0; i < MAX; i++) {
 
