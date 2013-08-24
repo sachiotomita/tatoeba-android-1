@@ -25,17 +25,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/LocalDataBaseAsyncTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/models/tables/Users.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/size_index.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/splash_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/WelcomeActivity.java" afterPath="$PROJECT_DIR$/src/org/tatoeba/mobile/android/WelcomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/db_init_users.csv" afterPath="$PROJECT_DIR$/assets/db_init_users.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\copyright\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\uiDesigner.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\tatoeba\dev\mobile\android\tatoeba-android\.idea\workspace.xml" afterPath="" />
     </list>
+    <list id="d80f1c58-8841-422d-bfb5-9a796837934c" name="not-to-commit" comment="" />
     <ignored path="tatoeba4android.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377285774760" ignored="false" />
+    <file path="/Dummy.txt" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377371698250" ignored="false" />
     <file path="/WelcomeActivity.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377297156929" ignored="false" />
     <file path="/SearchFragmentTab.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376813423473" ignored="false" />
     <file path="/search_fragment.xml" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1376338617955" ignored="false" />
@@ -59,7 +63,7 @@
     <file path="/splash_screen.xml" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377297065093" ignored="false" />
     <file path="/Users.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377289059360" ignored="false" />
     <file path="/LocalDataBase.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377297185468" ignored="false" />
-    <file path="/LocalDataBaseAsyncTask.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377295870990" ignored="false" />
+    <file path="/LocalDataBaseAsyncTask.java" changelist="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" time="1377370570704" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,10 +136,10 @@
       <file leaf-file-name="LocalDataBaseAsyncTask.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/LocalDataBaseAsyncTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="48" selection-start="4942" selection-end="4942" vertical-scroll-proportion="0.39259258">
+            <state line="113" column="27" selection-start="3657" selection-end="3657" vertical-scroll-proportion="0.4183124">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2815#2823#0" expanded="true" />
+                <element signature="e#2947#2955#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -170,25 +174,25 @@
       </file>
       <file leaf-file-name="splash_screen.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/splash_screen.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="12" selection-start="389" selection-end="389" vertical-scroll-proportion="-6.8">
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="12" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="results_fragment.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/results_fragment.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="1734" selection-end="1999" vertical-scroll-proportion="-14.96">
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="0" selection-start="1734" selection-end="1999" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -396,6 +400,10 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db_init" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -428,6 +436,7 @@
       <recent name="org.tatoeba.mobile.android" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\tatoeba\dev\mobile\android\tatoeba-android\assets\db_init" />
       <recent name="E:\tatoeba\dev\mobile\android\tatoeba-android\assets" />
       <recent name="E:\tatoeba\dev\mobile\android\tatoeba-android\res\layout" />
       <recent name="E:\tatoeba\dev\mobile\android\tatoeba-android\src\au\com\bytecode\opencsv" />
@@ -603,6 +612,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="5cdba9b1-038f-41e9-ac20-8f43f03e1c30" name="Default" comment="" />
+      <changelist id="d80f1c58-8841-422d-bfb5-9a796837934c" name="not-to-commit" comment="" />
       <created>1375560231480</created>
       <updated>1375560231480</updated>
     </task>
@@ -638,14 +648,22 @@
       <created>1377064330841</created>
       <updated>1377064330841</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="* CSV parsing experiments continued. &#10;* Added a splash screen to be displayed while the DB is being initialized for the first time.&#10;* Added a working progressBar to the splash screen.">
+      <created>1377297721810</created>
+      <updated>1377297721810</updated>
+    </task>
+    <task id="LOCAL-00010" summary="* Added the essential CSV files to initialize the local demo DB">
+      <created>1377371712422</created>
+      <updated>1377371712422</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -660,10 +678,10 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26927784" sideWeight="0.80667436" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19332567" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="121" y="136" width="1496" height="826" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2766218" sideWeight="0.6708861" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19332567" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.6006904" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="121" y="136" width="1496" height="826" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.6006904" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -714,7 +732,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="* CSV parsing experiments." />
+    <option name="LAST_COMMIT_MESSAGE" value="* Added the essential CSV files to initialize the local demo DB" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -735,6 +753,8 @@
     <MESSAGE value="* Classes moved to packages.&#10;* The Tab fragments now have a single superclass to abstract the common features.&#10;* Tab IDs are now stored in Enum.&#10;* Search string is now passed to the &quot;Results&quot; fragment successfully. &#10;&#10;* A few additions to the background task. Still a long way to go though.&#10;&#10;&#10;&#10;&#10;" />
     <MESSAGE value="* Early groundwork for the &quot;Sentences&quot; model.&#10;* Early groundwork for the DataBase entry point." />
     <MESSAGE value="* CSV parsing experiments." />
+    <MESSAGE value="* CSV parsing experiments continued. &#10;* Added a splash screen to be displayed while the DB is being initialized for the first time.&#10;* Added a working progressBar to the splash screen." />
+    <MESSAGE value="* Added the essential CSV files to initialize the local demo DB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -744,51 +764,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://F:/Android/adt-bundle-windows-x86_64/sdk/sources/android-15/android/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1810" column="17" selection-start="79876" selection-end="79876" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/fragments/SearchFragmentTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="59" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1306#1615#0" expanded="true" />
-            <element signature="e#1604#1605#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/results_fragment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="1734" selection-end="1999" vertical-scroll-proportion="-14.96">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/search_fragment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="0" selection-start="3949" selection-end="4136" vertical-scroll-proportion="0.43243244">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="68" selection-start="446" selection-end="446" vertical-scroll-proportion="0.27027026">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="68" selection-start="446" selection-end="446" vertical-scroll-proportion="0.27027026" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/models/tables/Sentences.java">
@@ -829,20 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/db_init_users.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="75" selection-start="690" selection-end="690" vertical-scroll-proportion="0.5852459">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/size_index.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="49" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/Android/adt-bundle-windows-x86_64/sdk/sources/android-15/android/os/AsyncTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="509" column="53" selection-start="19971" selection-end="19971" vertical-scroll-proportion="0.3327869">
@@ -851,13 +818,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/splash_screen.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="12" selection-start="389" selection-end="389" vertical-scroll-proportion="-6.8">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="12" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/WelcomeActivity.java">
@@ -867,12 +834,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/results_fragment.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="1734" selection-end="1999" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/db_init/links.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="104" selection-start="82" selection-end="82" vertical-scroll-proportion="0.1762963">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tatoeba/mobile/android/service/LocalDataBaseAsyncTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="48" selection-start="4942" selection-end="4942" vertical-scroll-proportion="0.39259258">
+        <state line="113" column="27" selection-start="3657" selection-end="3657" vertical-scroll-proportion="0.4183124">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2815#2823#0" expanded="true" />
+            <element signature="e#2947#2955#0" expanded="true" />
           </folding>
         </state>
       </provider>
