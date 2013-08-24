@@ -48,8 +48,10 @@ public class LocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
     /** Length of the CSV-asset data processed so far */
     private long _processedDataLength = 0;
 
-    private final String SIZE_INDEX_FILE = "size_index.txt";
-    private final String USERS_CSV = "db_init_users.csv";
+    private final String SIZE_INDEX_FILE = "db_init/total_size.txt";
+    private final String USERS_CSV = "db_init/users.csv";
+    private final String LINKS_CSV = "db_init/links.csv";
+    private final String SENTENCES_CSV = "db_init/sentences.csv";
 
     /** CSV parser */
     private CSVParser _csvParser;
@@ -104,11 +106,11 @@ public class LocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
         }
 
 
-        _splashText.setText("Processing: " + USERS_CSV);
+        _splashText.setText("Processing: " + SENTENCES_CSV);
 
         try {
             BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(_context.getAssets().open(USERS_CSV), "UTF-8"));
+                    new InputStreamReader(_context.getAssets().open(SENTENCES_CSV), "UTF-8"));
 
             // do reading, usually loop until end of file reading
             String mLine = reader.readLine();
