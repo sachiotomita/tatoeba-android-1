@@ -14,23 +14,31 @@ import android.util.Log;
  * Time: 22:33
  */
 
-
-public class Users extends SQLiteOpenHelper
+public class Users extends AbstractTable
 {
-    public Users(Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler)
+
+    public static final String COLUMN_USER_ID = "_id";
+    public static final String COLUMN_USER_NAME = "userName";
+    public static final String COLUMN_EMAIL = "email";
+
+    protected Users()
     {
-        super(context, name, factory, version, errorHandler);
+        super("users");
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db)
+    protected void prepareSqlCreateTable()
     {
-        Log.d("###", "Users/onCreate() called!");
+        _SQLCreateTable = "create table "
+                + _tableName + "( " + COLUMN_ID + " integer primary key autoincrement, "
+                + COLUMN_USER_ID + " integer not null, "
+                + COLUMN_USER_NAME + " text not null, "
+                + COLUMN_EMAIL + " text not null);";
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
+    protected void prepareSqlUpgradeTable()
     {
-        Log.d("###", "Users/onUpgrade() called!");
+        throw new Error("Not implemented yet!");
     }
 }
