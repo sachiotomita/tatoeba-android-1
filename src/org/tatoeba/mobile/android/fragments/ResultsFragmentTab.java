@@ -16,17 +16,15 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import au.com.bytecode.opencsv.CSVParser;
-import au.com.bytecode.opencsv.CSVReader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.ArrayList;
 
 import org.tatoeba.mobile.android.R;
 import org.tatoeba.mobile.android.WelcomeActivity;
-import org.tatoeba.mobile.android.service.QueryTatoebaTask;
+import org.tatoeba.mobile.android.service.local_database.QueryTatoebaTask;
 
 public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener
 {

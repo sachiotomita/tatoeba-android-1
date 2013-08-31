@@ -1,11 +1,9 @@
-package org.tatoeba.mobile.android.service;
+package org.tatoeba.mobile.android.service.local_database;
 
 import android.os.AsyncTask;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
-import java.net.URL;
 
 /**
  * Created with IntelliJ IDEA.

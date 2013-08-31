@@ -1,4 +1,4 @@
-package org.tatoeba.mobile.android.service;
+package org.tatoeba.mobile.android.service.local_database;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -8,6 +8,13 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import au.com.bytecode.opencsv.CSVParser;
 import org.tatoeba.mobile.android.WelcomeActivity;
+import org.tatoeba.mobile.android.service.local_database.data_sources.SentenceDataSource;
+import org.tatoeba.mobile.android.service.local_database.data_sources.SentenceLinksDataSource;
+import org.tatoeba.mobile.android.service.local_database.data_sources.UsersDataSource;
+import org.tatoeba.mobile.android.service.local_database.models.Sentence;
+import org.tatoeba.mobile.android.service.local_database.models.SentenceLink;
+import org.tatoeba.mobile.android.service.local_database.models.User;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -54,6 +61,13 @@ public class LocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
     /** CSV parser */
     private CSVParser _csvParser;
 
+    // db-related variables
+    private UsersDataSource _userDataSource;
+    private SentenceLinksDataSource _sentenceLinksDataSource;
+    private SentenceDataSource _sentenceDataSource;
+
+
+
 
     public LocalDataBaseAsyncTask(Context context)
     {
@@ -81,9 +95,18 @@ public class LocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
     {
 //-------------------------------------------------------------------------------------------------------------
 
+        if (_userDataSource == null) _userDataSource = new UsersDataSource(_context);
+        if (_sentenceLinksDataSource == null) _sentenceLinksDataSource = new SentenceLinksDataSource(_context);
+        if (_sentenceDataSource == null) _sentenceDataSource = new SentenceDataSource(_context);
+
         String[] record = new String[10];
         _csvParser = new CSVParser('\t');
-        String[] csvFiles = new String[]{USERS_CSV, LINKS_CSV, SENTENCES_CSV, };
+        String[] csvFiles = new String[]{LINKS_CSV, USERS_CSV, SENTENCES_CSV, };
+
+        // this call opens the DB for all the 3:
+        // _userDataSource, _sentenceLinksDataSource and _sentenceDataSource.
+        // They all share the same DB instance and  the open() and close() implementation.
+        _userDataSource.open();
 
         for (int i=0; i<csvFiles.length; i++)
         {
@@ -120,6 +143,7 @@ public class LocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
                 Log.e("###", "Could not open file: " + _currentFile);
             }
         }
+        _userDataSource.close();
 //-------------------------------------------------------------------------------------------------------------
         return _totalDataLength;
     }
@@ -131,36 +155,44 @@ public class LocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
      */
     private void parseRecord(String[] record, String type)
     {
-        String trash = "";
-        try
-        {
+
+        // TEMPORARY! Remove the whole old DB before we begin.
+        //_context.deleteDatabase(TatoebaDBHelper.DATABASE_NAME);
+
+        //try
+        //{
             if (type.equals(SENTENCES_CSV))
             {
                 //5966	nld	Ik moet gaan slapen.	17
-                trash += record[0]; // sentence id
-                trash += record[1]; // sentence language
-                trash += record[2]; // sentence text
-                trash += record[3]; // user id
+                int sentenceID = Integer.parseInt(record[0]); // sentence id
+                String language = record[1]; // sentence language
+                String text = record[2]; // sentence text
+                int ownerId  = Integer.parseInt(record[3]); // owner id
+                Sentence sentence = _sentenceDataSource.createSentence(sentenceID,language, text, ownerId);
             }
             else if (type.equals(LINKS_CSV))
             {
                 //1289	5980
-                trash += record[0]; // left sentence id
-                trash += record[1]; // right sentence id
-
+                int leftSentenceID = Integer.parseInt(record[0]); // left sentence id
+                int rightSentenceID = Integer.parseInt(record[1]); // right sentence id
+                SentenceLink link = _sentenceLinksDataSource.createLink(leftSentenceID, rightSentenceID);
+                //Log.d("##", link.toString());
             }
             else if (type.equals(USERS_CSV))
             {
                 //7	Arraroak	Arraroak@tatoeba.org
-                trash += record[0]; // user id
-                trash += record[1]; // user name
-                trash += record[2]; // email
+                int userId = Integer.parseInt(record[0]); // user id
+                String userName = record[1]; // user name
+                String email  = record[2]; // email
+                User user = _userDataSource.createUser(userId, userName,email);
+                //Log.d("##", user.toString());
+
             }
-        } catch (Exception e)
+        /*} catch (Exception e)
         {
             Log.w("###", "This record failed: " + record.toString());
         }
-
+              */
     }
 
 

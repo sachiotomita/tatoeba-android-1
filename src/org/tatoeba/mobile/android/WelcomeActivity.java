@@ -17,7 +17,7 @@ import android.widget.TextView;
 import org.tatoeba.mobile.android.fragments.BrowseFragmentTab;
 import org.tatoeba.mobile.android.fragments.ResultsFragmentTab;
 import org.tatoeba.mobile.android.fragments.SearchFragmentTab;
-import org.tatoeba.mobile.android.service.LocalDataBaseAsyncTask;
+import org.tatoeba.mobile.android.service.local_database.LocalDataBaseAsyncTask;
 
 public class WelcomeActivity extends Activity
 {
