@@ -7,6 +7,7 @@ import android.util.Log;
 import org.tatoeba.mobile.android.service.local_database.tables.TableLinks;
 import org.tatoeba.mobile.android.service.local_database.tables.TableSentences;
 import org.tatoeba.mobile.android.service.local_database.tables.TableUsers;
+import org.tatoeba.mobile.android.utils.DatabaseUtils;
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,7 +42,6 @@ public class TatoebaDBHelper extends SQLiteOpenHelper
     @Override
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion)
     {
-
         Log.d("###", "Users/onUpgrade() called!");
         database.execSQL( TableUsers.onUpgrade() );
         /*
@@ -52,4 +52,16 @@ public class TatoebaDBHelper extends SQLiteOpenHelper
         onCreate(database);
         */
     }
+
+    /**
+     * Checks if the database already exists.
+     * @param context
+     * @return True - the database exists, false otherwise.
+     */
+    public static boolean databaseExists(Context context)
+    {
+        return DatabaseUtils.databaseExists(context, DATABASE_NAME);
+    }
+
+
 }

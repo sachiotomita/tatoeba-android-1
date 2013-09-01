@@ -33,7 +33,7 @@ import java.io.InputStreamReader;
  * and update the UI correspondingly.
  */
 //public class QueryTatoebaTask extends AsyncTask<URL, Integer, Long>
-public class LocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
+public class InitLocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
 {
 
 
@@ -69,7 +69,7 @@ public class LocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
 
 
 
-    public LocalDataBaseAsyncTask(Context context)
+    public InitLocalDataBaseAsyncTask(Context context)
     {
         _context = context;
         _csvParser = new CSVParser('\t');
@@ -218,7 +218,7 @@ public class LocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
         _welcomeActivity.onDataBaseCreated();
     }
 
-    public void setVisualAssets(TextView textView, ProgressBar progressBar, WelcomeActivity welcomeActivity)
+    public void setVisualSplashAssets(TextView textView, ProgressBar progressBar, WelcomeActivity welcomeActivity)
     {
         _splashText = textView;
         _progressBar = progressBar;

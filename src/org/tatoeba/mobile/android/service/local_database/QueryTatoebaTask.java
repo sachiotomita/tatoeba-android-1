@@ -67,7 +67,7 @@ public class QueryTatoebaTask extends AsyncTask<String, Integer, Long>
         //showDialog("Downloaded " + result + " bytes");
     }
 
-    //public void setVisualAssets(TextView textView, ScrollView scrollView)
+    //public void setVisualSplashAssets(TextView textView, ScrollView scrollView)
     public void setVisualAssets(TextView textView, ProgressBar progressBar)
     {
 
