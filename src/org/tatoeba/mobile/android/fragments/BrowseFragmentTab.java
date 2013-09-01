@@ -15,6 +15,7 @@ import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.app.ActionBar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import org.tatoeba.mobile.android.R;
 
@@ -22,6 +23,7 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
 
     private EditText _sentenceIdBox;
     protected boolean _firstTouch = true;
+    private Button _randomFetchButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
 
         _activity.setContentView(R.layout.browse_fragment);
         _sentenceIdBox = (EditText) _activity.findViewById(R.id.sentenceIdInputBox);
+        initializeButtons();
 
         // remove the greeting text from the sentence ID box
         _sentenceIdBox.setOnFocusChangeListener(new View.OnFocusChangeListener()
@@ -47,6 +50,18 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
 
     }
 
+    private void initializeButtons()
+    {
+        _randomFetchButton = (Button) _activity.findViewById(R.id.randomFetchButton);
+        _randomFetchButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+    }
 
 
     public void onTabSelected(Tab tab, FragmentTransaction ft) {

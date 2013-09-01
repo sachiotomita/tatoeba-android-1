@@ -103,6 +103,4 @@ public class WelcomeActivity extends Activity
         tab.setText(getString(R.string.resultsTabCaption));
         actionBar.addTab(tab);
     }
-
-
 }
