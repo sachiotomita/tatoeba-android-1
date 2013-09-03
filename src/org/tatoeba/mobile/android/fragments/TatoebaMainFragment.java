@@ -41,4 +41,5 @@ public class TatoebaMainFragment extends Fragment
         _actionBar = this.getActivity().getActionBar();
     }
 
+
 }

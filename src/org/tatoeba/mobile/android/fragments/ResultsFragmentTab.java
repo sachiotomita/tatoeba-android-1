@@ -9,10 +9,13 @@ package org.tatoeba.mobile.android.fragments;
  */
 
 
-import android.app.ActionBar;
+import android.app.*;
 import android.app.ActionBar.Tab;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import au.com.bytecode.opencsv.CSVParser;
@@ -24,9 +27,10 @@ import java.util.ArrayList;
 
 import org.tatoeba.mobile.android.R;
 import org.tatoeba.mobile.android.WelcomeActivity;
+import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
 import org.tatoeba.mobile.android.service.local_database.QueryTatoebaTask;
 
-public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener
+public class ResultsFragmentTab extends ListFragment implements ActionBar.TabListener
 {
 
     private TextView _tempText;
@@ -39,10 +43,40 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
     private QueryTatoebaTask _service;
     private CSVParser _csvParser;
 
+//////////////////////////////////////////////////////////////
+//      This part is to make the fragment compatible with TatoebaMainFragment
+//      (Hopefully, this is a temporary solution
+
+        protected Fragment mFragment;
+        protected ActionBar _actionBar;
+        protected Activity _activity;
+
+        /**
+         * Selects and opens one of the main menu tabs
+         */
+        protected void switchTab(MAIN_TABS tab)
+        {
+            //Log.d("###","tab.ordinal()="+tab.ordinal());
+            this._actionBar.setSelectedNavigationItem(tab.ordinal());
+        }
+
+
+        private void onCreateTatoebaMainFragment(Bundle savedInstanceState)
+        {
+            super.onCreate(savedInstanceState);
+            _activity = getActivity();
+            _actionBar = this.getActivity().getActionBar();
+        }
+////////////////////////////////////////////////////////////
+
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        onCreateTatoebaMainFragment(savedInstanceState);
         super.onCreate(savedInstanceState);
         initialize();
         handleSearchString();
@@ -61,7 +95,7 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
 
         _tempText.setText(searchStr);
 
-
+        /*
         if (_service == null) _service = new QueryTatoebaTask();
         _service.setVisualAssets(_tempText, _progressBar);
         _service.execute(searchStr);
@@ -121,26 +155,21 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         } catch (IOException e) {
             //log the exception
         }
-
-
-
-
-
-
-
+                   */
     }
+
 
     private void initialize()
     {
-
         _welcomeActivity = (WelcomeActivity) _activity;
         _welcomeActivity.setContentView(R.layout.results_fragment);
+
+        /*
         _tempText = (TextView) _welcomeActivity.findViewById(R.id.tempTextField);
         _tempText.setText("General purpose temp results log here...");
-
         _progressBar = (ProgressBar) _welcomeActivity.findViewById(R.id.resultsProgressBar);
         //_progressBar.setVisibility(View.INVISIBLE);
-
+        */
     }
 
 
@@ -177,6 +206,49 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
     {
         // TODO Auto-generated method stub
 
+    }
+
+
+    String[] languages = new String[] {
+            "Dutch",
+            "English",
+            "Russian",
+            "Swedish",
+            "Tamil",
+            "French",
+            "Estonian",
+            "Finnish",
+            "Ukrainian",
+            "Japanese",
+            "German",
+            "Chinese",
+            "Norwegian"
+    };
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+
+        /** Creating an array adapter to store the list of languages **/
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(inflater.getContext(), R.layout.result_list_item_1, languages);
+/*
+
+public class
+ArrayAdapter
+extends BaseAdapter implements Filterable
+
+A concrete BaseAdapter that is backed by an array of arbitrary objects. By default this class expects that the provided resource id references a single TextView. If you want to use a more complex layout, use the constructors that also takes a field id. That field id should reference a TextView in the larger layout resource.
+However the TextView is referenced, it will be filled with the toString() of each object in the array. You can add lists or arrays of custom objects. Override the toString() method of your objects to determine what text will be displayed for the item in the list.
+To use something other than TextViews for the array display, for instance, ImageViews, or to have some of data besides toString() results fill the views, override getView(int, View, ViewGroup) to return the type of view you want.
+ */
+
+
+
+        //android.R.layout.simple_list_item_1
+        /** Setting the list adapter for the ListFragment */
+        setListAdapter(adapter);
+
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
 }
