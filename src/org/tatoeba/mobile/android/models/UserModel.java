@@ -1,4 +1,4 @@
-package org.tatoeba.mobile.android.service.local_database.models;
+package org.tatoeba.mobile.android.models;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +11,7 @@ package org.tatoeba.mobile.android.service.local_database.models;
 /**
  * The class represents one user.
  */
-public class User
+public class UserModel
 {
     private long _id;
     private int _userId;

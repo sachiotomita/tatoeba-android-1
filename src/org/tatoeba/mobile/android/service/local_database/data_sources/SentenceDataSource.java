@@ -3,9 +3,7 @@ package org.tatoeba.mobile.android.service.local_database.data_sources;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import org.tatoeba.mobile.android.service.local_database.models.Sentence;
-import org.tatoeba.mobile.android.service.local_database.models.SentenceLink;
-import org.tatoeba.mobile.android.service.local_database.tables.TableSentences;
+import org.tatoeba.mobile.android.models.SentenceModel;
 import org.tatoeba.mobile.android.service.local_database.tables.TableSentences;
 
 /**
@@ -29,7 +27,7 @@ public class SentenceDataSource extends AbstractDataSource
     /***
      * Adds a new sentence link  to the DB, reads it and returns it (re-check!)
      */
-    public Sentence createSentence(int sentenceId, String language, String text, int ownerId)
+    public SentenceModel createSentence(int sentenceId, String language, String text, int ownerId)
     {
         checkDataBase();
 
@@ -47,14 +45,14 @@ public class SentenceDataSource extends AbstractDataSource
                 allColumns, TableSentences.COLUMN_ID + " = " + insertId, null,
                 null, null, null);
         cursor.moveToFirst();
-        Sentence sentence = cursorToSentence(cursor);
+        SentenceModel sentence = cursorToSentence(cursor);
         cursor.close();
         return sentence;
     }
 
-    private Sentence cursorToSentence(Cursor cursor)
+    private SentenceModel cursorToSentence(Cursor cursor)
     {
-        Sentence sentence = new Sentence();
+        SentenceModel sentence = new SentenceModel();
         sentence.setSentenceId(cursor.getInt(0));
         sentence.setLanguage(cursor.getString(1));
         sentence.setText(cursor.getString(2));

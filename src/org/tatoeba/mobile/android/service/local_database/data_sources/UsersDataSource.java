@@ -3,7 +3,7 @@ package org.tatoeba.mobile.android.service.local_database.data_sources;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import org.tatoeba.mobile.android.service.local_database.models.User;
+import org.tatoeba.mobile.android.models.UserModel;
 import org.tatoeba.mobile.android.service.local_database.tables.TableUsers;
 
 /**
@@ -25,7 +25,7 @@ public class UsersDataSource extends AbstractDataSource
     /***
      * Adds a new user to the DB, reads it and returns it (re-check!)
      */
-    public User createUser(int userId, String userName, String email)
+    public UserModel createUser(int userId, String userName, String email)
     {
         checkDataBase();
 
@@ -41,14 +41,14 @@ public class UsersDataSource extends AbstractDataSource
                 allColumns, TableUsers.COLUMN_ID + " = " + insertId, null,
                 null, null, null);
         cursor.moveToFirst();
-        User newUser = cursorToUser(cursor);
+        UserModel newUser = cursorToUser(cursor);
         cursor.close();
         return newUser;
     }
 
-    private User cursorToUser(Cursor cursor)
+    private UserModel cursorToUser(Cursor cursor)
     {
-        User user = new User();
+        UserModel user = new UserModel();
         int userId = cursor.getInt(0);
         user.setUserId(userId);
         user.setName(cursor.getString(1));

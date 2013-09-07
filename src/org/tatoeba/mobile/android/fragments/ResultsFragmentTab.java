@@ -12,23 +12,18 @@ package org.tatoeba.mobile.android.fragments;
 import android.app.*;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.*;
 import au.com.bytecode.opencsv.CSVParser;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import org.tatoeba.mobile.android.R;
 import org.tatoeba.mobile.android.WelcomeActivity;
 import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
+import org.tatoeba.mobile.android.models.SentenceModel;
+import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
 import org.tatoeba.mobile.android.service.local_database.QueryTatoebaTask;
+import org.tatoeba.mobile.android.views.search_result.SentenceAdapter;
 
 public class ResultsFragmentTab extends ListFragment implements ActionBar.TabListener
 {
@@ -43,34 +38,39 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
     private QueryTatoebaTask _service;
     private CSVParser _csvParser;
 
+
+//////////////////////////////////////////////////////////////
+//      The list-related members
+
+    ListView list;
+    SentenceAdapter adapter;
+
 //////////////////////////////////////////////////////////////
 //      This part is to make the fragment compatible with TatoebaMainFragment
 //      (Hopefully, this is a temporary solution
 
-        protected Fragment mFragment;
-        protected ActionBar _actionBar;
-        protected Activity _activity;
+    protected Fragment mFragment;
+    protected ActionBar _actionBar;
+    protected Activity _activity;
+    private ArrayList<TranslatedSentenceModel> _translations;
 
-        /**
-         * Selects and opens one of the main menu tabs
-         */
-        protected void switchTab(MAIN_TABS tab)
-        {
-            //Log.d("###","tab.ordinal()="+tab.ordinal());
-            this._actionBar.setSelectedNavigationItem(tab.ordinal());
-        }
+    /**
+     * Selects and opens one of the main menu tabs
+     */
+    protected void switchTab(MAIN_TABS tab)
+    {
+        //Log.d("###","tab.ordinal()="+tab.ordinal());
+        this._actionBar.setSelectedNavigationItem(tab.ordinal());
+    }
 
 
-        private void onCreateTatoebaMainFragment(Bundle savedInstanceState)
-        {
-            super.onCreate(savedInstanceState);
-            _activity = getActivity();
-            _actionBar = this.getActivity().getActionBar();
-        }
+    private void onCreateTatoebaMainFragment(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        _activity = getActivity();
+        _actionBar = this.getActivity().getActionBar();
+    }
 ////////////////////////////////////////////////////////////
-
-
-
 
 
     @Override
@@ -79,7 +79,29 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
         onCreateTatoebaMainFragment(savedInstanceState);
         super.onCreate(savedInstanceState);
         initialize();
-        handleSearchString();
+        //handleSearchString();
+
+        list = (ListView) _activity.findViewById(R.id.resultList);
+
+        // Getting adapter by passing xml data ArrayList
+        adapter = new SentenceAdapter(_activity, _translations);
+        //list.setAdapter(adapter);
+        setListAdapter(adapter);
+
+        /*
+        // Click event for single list row
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id)
+            {
+                Log.d("###", "view id: " + id);
+            }
+        });
+          */
+
 
     }
 
@@ -89,7 +111,7 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
         String searchStr = _welcomeActivity.currentSearchString;
 
         // nothing to do if no search string was set.
-        if(searchStr == null || searchStr.isEmpty())
+        if (searchStr == null || searchStr.isEmpty())
             return;
 
 
@@ -164,6 +186,38 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
         _welcomeActivity = (WelcomeActivity) _activity;
         _welcomeActivity.setContentView(R.layout.results_fragment);
 
+        _translations = new ArrayList<TranslatedSentenceModel>();
+
+        SentenceModel tempMainSentence;
+        SentenceModel tempSingleTranslation;
+        ArrayList<SentenceModel> tempTranslationCollection;
+
+        TranslatedSentenceModel translatedSentence;
+
+        for (int i = 0; i < 15; i++)
+        {
+            // fake the main sentence
+            tempMainSentence = new SentenceModel();
+            tempMainSentence.setText("This is a sample main sentence. Index: [" + i + "]");
+            tempTranslationCollection = new ArrayList<SentenceModel>();
+
+            // fake the translations to the main sentence
+            for (int j = 0; j < 5; j++)
+            {
+                tempSingleTranslation = new SentenceModel();
+                tempSingleTranslation.setText("And here is a sample translation. Index: [" + i + ", " + j + "]");
+                tempTranslationCollection.add(tempSingleTranslation);
+            }
+
+            translatedSentence = new TranslatedSentenceModel(tempMainSentence, tempTranslationCollection);
+            _translations.add(translatedSentence);
+
+        }
+
+
+
+
+
         /*
         _tempText = (TextView) _welcomeActivity.findViewById(R.id.tempTextField);
         _tempText.setText("General purpose temp results log here...");
@@ -207,9 +261,11 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
         // TODO Auto-generated method stub
 
     }
+}
 
 
-    String[] languages = new String[] {
+/*
+    String[] languages = new String[]{
             "Dutch",
             "English",
             "Russian",
@@ -224,13 +280,26 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
             "Chinese",
             "Norwegian"
     };
+*/
 
+    /*
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
 
-        /** Creating an array adapter to store the list of languages **/
+        // Creating an array adapter to store the list of languages
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(inflater.getContext(), R.layout.result_list_item_1, languages);
+
+        //android.R.layout.simple_list_item_1
+        // Setting the list adapter for the ListFragment
+        setListAdapter(adapter);
+
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+    */
+
+
 /*
 
 public class
@@ -241,14 +310,3 @@ A concrete BaseAdapter that is backed by an array of arbitrary objects. By defau
 However the TextView is referenced, it will be filled with the toString() of each object in the array. You can add lists or arrays of custom objects. Override the toString() method of your objects to determine what text will be displayed for the item in the list.
 To use something other than TextViews for the array display, for instance, ImageViews, or to have some of data besides toString() results fill the views, override getView(int, View, ViewGroup) to return the type of view you want.
  */
-
-
-
-        //android.R.layout.simple_list_item_1
-        /** Setting the list adapter for the ListFragment */
-        setListAdapter(adapter);
-
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-}

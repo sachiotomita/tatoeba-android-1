@@ -8,12 +8,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import au.com.bytecode.opencsv.CSVParser;
 import org.tatoeba.mobile.android.WelcomeActivity;
+import org.tatoeba.mobile.android.models.SentenceLinkModel;
+import org.tatoeba.mobile.android.models.SentenceModel;
+import org.tatoeba.mobile.android.models.UserModel;
 import org.tatoeba.mobile.android.service.local_database.data_sources.SentenceDataSource;
 import org.tatoeba.mobile.android.service.local_database.data_sources.SentenceLinksDataSource;
 import org.tatoeba.mobile.android.service.local_database.data_sources.UsersDataSource;
-import org.tatoeba.mobile.android.service.local_database.models.Sentence;
-import org.tatoeba.mobile.android.service.local_database.models.SentenceLink;
-import org.tatoeba.mobile.android.service.local_database.models.User;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -99,7 +99,7 @@ public class InitLocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
         if (_sentenceLinksDataSource == null) _sentenceLinksDataSource = new SentenceLinksDataSource(_context);
         if (_sentenceDataSource == null) _sentenceDataSource = new SentenceDataSource(_context);
 
-        String[] record = new String[10];
+        String[] record;
         _csvParser = new CSVParser('\t');
         String[] csvFiles = new String[]{LINKS_CSV, USERS_CSV, SENTENCES_CSV, };
 
@@ -168,14 +168,14 @@ public class InitLocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
                 String language = record[1]; // sentence language
                 String text = record[2]; // sentence text
                 int ownerId  = Integer.parseInt(record[3]); // owner id
-                Sentence sentence = _sentenceDataSource.createSentence(sentenceID,language, text, ownerId);
+                SentenceModel sentence = _sentenceDataSource.createSentence(sentenceID,language, text, ownerId);
             }
             else if (type.equals(LINKS_CSV))
             {
                 //1289	5980
                 int leftSentenceID = Integer.parseInt(record[0]); // left sentence id
                 int rightSentenceID = Integer.parseInt(record[1]); // right sentence id
-                SentenceLink link = _sentenceLinksDataSource.createLink(leftSentenceID, rightSentenceID);
+                SentenceLinkModel link = _sentenceLinksDataSource.createLink(leftSentenceID, rightSentenceID);
                 //Log.d("##", link.toString());
             }
             else if (type.equals(USERS_CSV))
@@ -184,7 +184,7 @@ public class InitLocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
                 int userId = Integer.parseInt(record[0]); // user id
                 String userName = record[1]; // user name
                 String email  = record[2]; // email
-                User user = _userDataSource.createUser(userId, userName,email);
+                UserModel user = _userDataSource.createUser(userId, userName,email);
                 //Log.d("##", user.toString());
 
             }

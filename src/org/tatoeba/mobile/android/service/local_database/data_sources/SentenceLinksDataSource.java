@@ -3,10 +3,8 @@ package org.tatoeba.mobile.android.service.local_database.data_sources;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import org.tatoeba.mobile.android.service.local_database.models.SentenceLink;
-import org.tatoeba.mobile.android.service.local_database.models.User;
+import org.tatoeba.mobile.android.models.SentenceLinkModel;
 import org.tatoeba.mobile.android.service.local_database.tables.TableLinks;
-import org.tatoeba.mobile.android.service.local_database.tables.TableUsers;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,7 +27,7 @@ public class SentenceLinksDataSource extends AbstractDataSource
     /***
      * Adds a new sentence link  to the DB, reads it and returns it (re-check!)
      */
-    public SentenceLink createLink(int leftID, int rightID)
+    public SentenceLinkModel createLink(int leftID, int rightID)
     {
         checkDataBase();
 
@@ -44,16 +42,16 @@ public class SentenceLinksDataSource extends AbstractDataSource
                 allColumns, TableLinks.COLUMN_ID + " = " + insertId, null,
                 null, null, null);
         cursor.moveToFirst();
-        SentenceLink newLink = cursorToLink(cursor);
+        SentenceLinkModel newLink = cursorToLink(cursor);
         cursor.close();
         return newLink;
 
 
     }
 
-    private SentenceLink cursorToLink(Cursor cursor)
+    private SentenceLinkModel cursorToLink(Cursor cursor)
     {
-        SentenceLink link = new SentenceLink();
+        SentenceLinkModel link = new SentenceLinkModel();
         link.setLeftId(cursor.getInt(0));
         link.setRightId(cursor.getInt(1));
         return link;
