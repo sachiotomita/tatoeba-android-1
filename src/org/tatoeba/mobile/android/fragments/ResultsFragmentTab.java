@@ -12,6 +12,7 @@ package org.tatoeba.mobile.android.fragments;
 import android.app.*;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.*;
 import au.com.bytecode.opencsv.CSVParser;
 
@@ -31,8 +32,6 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
     private TextView _tempText;
     private ProgressBar _progressBar;
 
-
-    private boolean _firstTouch = true;
     private WelcomeActivity _welcomeActivity;
 
     private QueryTatoebaTask _service;
@@ -211,19 +210,8 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
 
             translatedSentence = new TranslatedSentenceModel(tempMainSentence, tempTranslationCollection);
             _translations.add(translatedSentence);
-
         }
 
-
-
-
-
-        /*
-        _tempText = (TextView) _welcomeActivity.findViewById(R.id.tempTextField);
-        _tempText.setText("General purpose temp results log here...");
-        _progressBar = (ProgressBar) _welcomeActivity.findViewById(R.id.resultsProgressBar);
-        //_progressBar.setVisibility(View.INVISIBLE);
-        */
     }
 
 
@@ -236,17 +224,6 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
         // Attach browse_fragmentagment.xml layout
         ft.add(android.R.id.content, mFragment);
         ft.attach(mFragment);
-
-        /*
-        if (_firstTouch)
-        {
-            _firstTouch = false;
-            return;
-        }
-        _progressBar.setVisibility(ProgressBar.SYSTEM_UI_FLAG_VISIBLE);
-        return;
-        */
-
     }
 
     public void onTabUnselected(Tab tab, FragmentTransaction ft)

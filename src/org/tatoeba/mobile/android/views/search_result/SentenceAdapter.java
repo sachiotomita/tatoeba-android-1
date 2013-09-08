@@ -2,13 +2,16 @@ package org.tatoeba.mobile.android.views.search_result;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import org.tatoeba.mobile.android.R;
 import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
+import org.tatoeba.mobile.android.utils.ViewUtils;
 
 import java.util.ArrayList;
 
@@ -61,21 +64,49 @@ public class SentenceAdapter extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        View vi = convertView;
-        if (convertView == null)
-            vi = inflater.inflate(R.layout.result_list_item_1, null);
+        View listItemView = convertView;
+        //if (convertView == null)
+            listItemView = inflater.inflate(R.layout.result_list_item_1, null);
 
-        TextView title = (TextView)vi.findViewById(R.id.title); // title
-        TextView artist = (TextView)vi.findViewById(R.id.artist); // artist name
-        TextView duration = (TextView)vi.findViewById(R.id.duration); // duration
+        TextView mainSentenceTV = (TextView)listItemView.findViewById(R.id.main_sentence); // main sentence text view
 
         TranslatedSentenceModel translatedSentence = data.get(position);
 
-        title.setText(translatedSentence.get_mainSentence().getText());
-        artist.setText(translatedSentence.get_translations().get(0).getText());
-        duration.setText(translatedSentence.get_translations().get(1).getText());
-        //imageLoader.DisplayImage(song.get(CustomizedListView.KEY_THUMB_URL), thumb_image);
+        mainSentenceTV.setText(translatedSentence.get_mainSentence().getText()); //
 
-        return vi;
+        prepareTranslations(listItemView, translatedSentence);
+
+        return listItemView;
     }
+
+    private void prepareTranslations(View listItemView, TranslatedSentenceModel translatedSentence)
+    {
+
+        LinearLayout translationsContainer = (LinearLayout)listItemView.findViewById(R.id.translationsLayout);
+
+        // how many times  to clone translation TextView
+        int cloneNumber = translatedSentence.get_translations().size();
+        Context appContext = listItemView.getContext().getApplicationContext();
+
+        TextView originalTextView = (TextView)listItemView.findViewById(R.id.first_translation);
+
+        // Populate the only existing translation TextView.
+        originalTextView.setText( translatedSentence.get_translations().get(0).getText() );
+
+        TextView clone;
+        String text;
+        for (int i = 1; i < cloneNumber; i++)
+        {
+            clone = new TextView(appContext);
+            text = translatedSentence.get_translations().get(i).getText();
+            clone.setText(text);
+            clone.setId( ViewUtils.generateViewId() );
+            clone.setLayoutParams(originalTextView.getLayoutParams());
+            translationsContainer.addView(clone);
+        }
+
+    }
+
 }
+
+

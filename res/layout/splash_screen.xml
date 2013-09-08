@@ -8,7 +8,7 @@
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome to Tatoeba internal demo!\nAs this is the first run, we have to populate the local DB with some initial records.\nWell, not populating anything in fact just yet. This is just the very first draft of the CSV processing."
+            android:text="Welcome to Tatoeba internal demo!\nAs this is the first run, we have to populate the local DB with some initial records.\nPlease wait."
             />
 
     <TextView

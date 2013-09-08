@@ -105,7 +105,7 @@ public class SentenceModel
     @Override
     public String toString()
     {
-        return "Sentence{" +
+        return "\nSentence{" +
                 "_id=" + _id +
                 ", _sentenceID=" + _sentenceID +
                 ", _language='" + _language + '\'' +

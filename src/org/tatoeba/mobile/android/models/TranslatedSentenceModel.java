@@ -14,8 +14,6 @@ import java.util.ArrayList;
 public class TranslatedSentenceModel
 {
 
-
-
     private SentenceModel _mainSentence;
     private ArrayList<SentenceModel> _translations;
 
@@ -40,6 +38,10 @@ public class TranslatedSentenceModel
         this._translations = _translations;
     }
 
+    /**
+     * The original sentence, which was translated.
+     * @return
+     */
     public SentenceModel get_mainSentence()
     {
         return _mainSentence;
@@ -50,5 +52,12 @@ public class TranslatedSentenceModel
         return _translations;
     }
 
-
+    @Override
+    public String toString()
+    {
+        return "TranslatedSentenceModel{" +
+                "_mainSentence=" + _mainSentence +
+                ", _translations=" + _translations +
+                '}';
+    }
 }
