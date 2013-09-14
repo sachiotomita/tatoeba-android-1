@@ -13,6 +13,9 @@ import android.app.*;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.*;
 import au.com.bytecode.opencsv.CSVParser;
 
@@ -80,12 +83,13 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
         initialize();
         //handleSearchString();
 
-        list = (ListView) _activity.findViewById(R.id.resultList);
-
         // Getting adapter by passing xml data ArrayList
         adapter = new SentenceAdapter(_activity, _translations);
-        //list.setAdapter(adapter);
         setListAdapter(adapter);
+
+        /////////////////////////////////////////////////////////////////////
+
+        //list = (ListView) _activity.findViewById(R.id.resultList);
 
         /*
         // Click event for single list row
@@ -214,11 +218,8 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
 
     }
 
-
     public void onTabSelected(Tab tab, FragmentTransaction ft)
     {
-
-
         // TODO Auto-generated method stub
         mFragment = new ResultsFragmentTab();
         // Attach browse_fragmentagment.xml layout
@@ -236,9 +237,31 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
     public void onTabReselected(Tab tab, FragmentTransaction ft)
     {
         // TODO Auto-generated method stub
-
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////
+    /*
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+
+        // Creating an array adapter to store the list of languages
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(inflater.getContext(), R.layout.result_list_item_1, languages);
+
+        //android.R.layout.simple_list_item_1
+        // Setting the list adapter for the ListFragment
+        setListAdapter(adapter);
+
+        return super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.results_fragment,container,false);
+    }
+                     */
+
+
 }
+
 
 
 /*
@@ -259,22 +282,8 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
     };
 */
 
-    /*
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
 
-        // Creating an array adapter to store the list of languages
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(inflater.getContext(), R.layout.result_list_item_1, languages);
 
-        //android.R.layout.simple_list_item_1
-        // Setting the list adapter for the ListFragment
-        setListAdapter(adapter);
-
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-    */
 
 
 /*

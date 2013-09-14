@@ -65,7 +65,7 @@ public class SentenceAdapter extends BaseAdapter
     public View getView(int position, View convertView, ViewGroup parent)
     {
         View listItemView = convertView;
-        //if (convertView == null)
+        if (convertView == null)
             listItemView = inflater.inflate(R.layout.result_list_item_1, null);
 
         TextView mainSentenceTV = (TextView)listItemView.findViewById(R.id.main_sentence); // main sentence text view
@@ -81,30 +81,20 @@ public class SentenceAdapter extends BaseAdapter
 
     private void prepareTranslations(View listItemView, TranslatedSentenceModel translatedSentence)
     {
-
-        LinearLayout translationsContainer = (LinearLayout)listItemView.findViewById(R.id.translationsLayout);
-
-        // how many times  to clone translation TextView
-        int cloneNumber = translatedSentence.get_translations().size();
-        Context appContext = listItemView.getContext().getApplicationContext();
+        int translationsNum = translatedSentence.get_translations().size();
 
         TextView originalTextView = (TextView)listItemView.findViewById(R.id.first_translation);
 
-        // Populate the only existing translation TextView.
-        originalTextView.setText( translatedSentence.get_translations().get(0).getText() );
-
-        TextView clone;
+        String translationsString = "";
         String text;
-        for (int i = 1; i < cloneNumber; i++)
+        for (int i = 0; i < translationsNum; i++)
         {
-            clone = new TextView(appContext);
             text = translatedSentence.get_translations().get(i).getText();
-            clone.setText(text);
-            clone.setId( ViewUtils.generateViewId() );
-            clone.setLayoutParams(originalTextView.getLayoutParams());
-            translationsContainer.addView(clone);
+            translationsString += "* " + text + "\n";
         }
 
+        // Populate the only existing translation TextView.
+        originalTextView.setText( translationsString );
     }
 
 }

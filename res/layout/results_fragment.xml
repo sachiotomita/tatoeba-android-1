@@ -1,90 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout android:id="@+id/ResultsRootRelativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+              <!--android:layout_width="fill_parent"-->
+              <!--android:layout_height="fill_parent"-->
+              <!--android:orientation="vertical">-->
+
+    <TextView android:id="@+id/headerThing"
+              android:text="THIS IS A TEST HEADER"
+              android:layout_marginBottom="40dp"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="20dp"
+              android:background="#880000"
+              android:textSize="16dp"
+              android:textStyle="bold"
+              android:layout_alignParentTop="true"
+              android:layout_margin="10dp"
+            />
+
+    <LinearLayout android:id="@+id/event_list_buttons"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_horizontal"
+                  android:layout_alignParentBottom="true"
+            >
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/events_list_view_organizing_button"
+                android:text="Organizing"
+                android:onClick="onClick" />
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/events_list_view_attending_button"
+                android:text="Attending"
+                android:onClick="onClick" />
+    </LinearLayout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dip"
+    android:orientation="vertical">
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/resultList"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:fastScrollEnabled="true"
+              android:divider="#b5b5b5"
+              android:dividerHeight="1dp"
+              android:layout_marginTop="150dip"
+              android:layout_marginBottom="10dip"
+              android:drawSelectorOnTop="false"
+              android:visibility="visible"
+              android:layout_below="@id/headerThing"
+            />
+
+    </LinearLayout>
+
+    <!--android:layout_below="@id/headerThing"-->
+    <!--android:layout_above="@id/event_list_buttons"-->
+    <!--android:listSelector="@drawable/list_selector"-->
+    <!--</LinearLayout>-->
+
+    </RelativeLayout>
+
+
+
+
+<!--
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/resultList"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:fastScrollEnabled="true"
+              android:divider="#b5b5b5"
+              android:dividerHeight="1dp"
+              android:listSelector="@drawable/list_selector"
+            />
+
+-->
+
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true">
+
+
+            <Button
+                    android:id="@+id/prev"
+                    android:text="Prev"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    />
+
+            <Button
+                    android:id="@+id/next"
+                    android:text="Next"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    />
+        </LinearLayout>
+
+        <ListView
+                android:id="@+id/resultList"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:divider="#b5b5b5"
+                android:dividerHeight="1dp"
+                android:listSelector="@drawable/list_selector" />
+    </RelativeLayout>
+    -->
+
+
+
+
+<!--
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical">
-
-    <ListView
-            android:id="@+id/resultList"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:divider="#b5b5b5"
-            android:dividerHeight="1dp"
-            android:listSelector="@drawable/list_selector" />
-
-</LinearLayout>
-
-
-
-<!--
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
 </LinearLayout>
 -->
-
-<!--
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@id/tempTextField"
-            android:text="@string/From">
-        <requestFocus />
-    </TextView>
--->
-
-    <!--
-    <ScrollView
-            android:id="@+id/tempTextFieldScroller"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/command"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/header"
-            android:fillViewport="true" >
-
-     <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:id="@id/tempTextField"
-             android:text="@string/From">
-             <requestFocus />
-     </TextView>
-     </ScrollView>
-    -->
-
-    <!--
-  <TextView
-         android:id="@+id/output"
-         android:layout_width="fill_parent"
-         android:layout_height="132dp"
-         android:bufferType="spannable"
-         android:editable="false"
-         android:enabled="false"
-         android:focusable="true"
-         android:focusableInTouchMode="false"
-         android:freezesText="true"
-         android:inputType="textMultiLine"
-         android:isScrollContainer="true"
-         android:scrollbars="vertical"
-         android:text="@string/output" >
-
-        <requestFocus />
-    </TextView>
-        -->
-
-
-<!--
-<ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:id="@+id/resultsProgressBar"
-        android:layout_gravity="center|center_vertical"/>
--->
-
-
-
-

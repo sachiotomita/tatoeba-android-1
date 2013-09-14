@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dip" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/translationLayout"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
 <!-- android:background="@drawable/list_selector" -->
 
     <!-- Main sentence -->
@@ -11,85 +12,20 @@
             android:id="@+id/main_sentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/arrow"
-            android:text="main sentence"
             android:textColor="#FFEA00"
             android:typeface="sans"
             android:textSize="16dip"
             android:textStyle="bold"/>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/translationsLayout"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent"
-                  android:layout_below="@id/main_sentence"
-                  android:orientation="vertical">
-    <!-- First translation -->
+    <!-- Translations -->
     <TextView
             android:id="@+id/first_translation"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
             android:textSize="14dip"
-            android:layout_marginTop="1dip"
-            android:layout_toLeftOf="@+id/arrow"
-            android:text="first translation" />
+            android:layout_marginTop="1dip" />
 
-    </LinearLayout>
-
-    <!-- Rightend Arrow -->
-    <ImageView
-                android:id="@+id/arrow"
-                android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:src="@drawable/arrow"
-               android:layout_alignParentRight="true"
-               android:layout_centerVertical="true"/>
-
-</RelativeLayout>
-<!--
-
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:orientation="vertical" >
-
-    <fragment
-            android:id="@+id/country_fragment"
-            android:name="org.tatoeba.mobile.android.fragments.ResultsFragmentTab"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            />
 
 </LinearLayout>
--->
 
-
-<!-- Copyright (C) 2006 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-
-<!--
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@android:id/text1"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:textAppearance="?android:attr/textAppearanceListItemSmall"
-          android:gravity="center_vertical"
-          android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
-          android:paddingRight="?android:attr/listPreferredItemPaddingRight"
-          android:minHeight="?android:attr/listPreferredItemHeightSmall"
-        />
--->
