@@ -13,9 +13,7 @@ import android.app.*;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.*;
 import au.com.bytecode.opencsv.CSVParser;
 
@@ -29,7 +27,7 @@ import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
 import org.tatoeba.mobile.android.service.local_database.QueryTatoebaTask;
 import org.tatoeba.mobile.android.views.search_result.SentenceAdapter;
 
-public class ResultsFragmentTab extends ListFragment implements ActionBar.TabListener
+public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener
 {
 
     private TextView _tempText;
@@ -39,6 +37,7 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
 
     private QueryTatoebaTask _service;
     private CSVParser _csvParser;
+    private ListView _listView;
 
 
 //////////////////////////////////////////////////////////////
@@ -47,13 +46,7 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
     ListView list;
     SentenceAdapter adapter;
 
-//////////////////////////////////////////////////////////////
-//      This part is to make the fragment compatible with TatoebaMainFragment
-//      (Hopefully, this is a temporary solution
 
-    protected Fragment mFragment;
-    protected ActionBar _actionBar;
-    protected Activity _activity;
     private ArrayList<TranslatedSentenceModel> _translations;
 
     /**
@@ -75,6 +68,12 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
 ////////////////////////////////////////////////////////////
 
 
+    public void onPageButtonClick(View v)
+    {
+        Log.d("###", "Page button clicked!");
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -85,10 +84,14 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
 
         // Getting adapter by passing xml data ArrayList
         adapter = new SentenceAdapter(_activity, _translations);
-        setListAdapter(adapter);
+
+        _listView = new ListView(_activity.getBaseContext());
+
+        _listView = (ListView) _activity.findViewById(R.id.resultList);
+        _listView.setAdapter(adapter);
 
         /////////////////////////////////////////////////////////////////////
-
+        //setListAdapter(adapter);
         //list = (ListView) _activity.findViewById(R.id.resultList);
 
         /*
@@ -107,6 +110,64 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
 
 
     }
+
+
+
+    private void initialize()
+    {
+        _welcomeActivity = (WelcomeActivity) _activity;
+        _welcomeActivity.setContentView(R.layout.results_fragment);
+
+        _translations = new ArrayList<TranslatedSentenceModel>();
+
+        SentenceModel tempMainSentence;
+        SentenceModel tempSingleTranslation;
+        ArrayList<SentenceModel> tempTranslationCollection;
+
+        TranslatedSentenceModel translatedSentence;
+
+        for (int i = 0; i < 15; i++)
+        {
+            // fake the main sentence
+            tempMainSentence = new SentenceModel();
+            tempMainSentence.setText("This is a sample main sentence. Index: [" + i + "]");
+            tempTranslationCollection = new ArrayList<SentenceModel>();
+
+            // fake the translations to the main sentence
+            for (int j = 0; j < 5; j++)
+            {
+                tempSingleTranslation = new SentenceModel();
+                tempSingleTranslation.setText("And here is a sample translation. Index: [" + i + ", " + j + "]");
+                tempTranslationCollection.add(tempSingleTranslation);
+            }
+
+            translatedSentence = new TranslatedSentenceModel(tempMainSentence, tempTranslationCollection);
+            _translations.add(translatedSentence);
+        }
+
+    }
+
+    public void onTabSelected(Tab tab, FragmentTransaction ft)
+    {
+        // TODO Auto-generated method stub
+        mFragment = new ResultsFragmentTab();
+        // Attach browse_fragmentagment.xml layout
+        ft.add(android.R.id.content, mFragment);
+        ft.attach(mFragment);
+    }
+
+    public void onTabUnselected(Tab tab, FragmentTransaction ft)
+    {
+        // TODO Auto-generated method stub
+        // Remove browse_fragment.xmlnt.xml layout
+        ft.remove(mFragment);
+    }
+
+    public void onTabReselected(Tab tab, FragmentTransaction ft)
+    {
+        // TODO Auto-generated method stub
+    }
+
 
     private void handleSearchString()
     {
@@ -184,115 +245,6 @@ public class ResultsFragmentTab extends ListFragment implements ActionBar.TabLis
     }
 
 
-    private void initialize()
-    {
-        _welcomeActivity = (WelcomeActivity) _activity;
-        _welcomeActivity.setContentView(R.layout.results_fragment);
-
-        _translations = new ArrayList<TranslatedSentenceModel>();
-
-        SentenceModel tempMainSentence;
-        SentenceModel tempSingleTranslation;
-        ArrayList<SentenceModel> tempTranslationCollection;
-
-        TranslatedSentenceModel translatedSentence;
-
-        for (int i = 0; i < 15; i++)
-        {
-            // fake the main sentence
-            tempMainSentence = new SentenceModel();
-            tempMainSentence.setText("This is a sample main sentence. Index: [" + i + "]");
-            tempTranslationCollection = new ArrayList<SentenceModel>();
-
-            // fake the translations to the main sentence
-            for (int j = 0; j < 5; j++)
-            {
-                tempSingleTranslation = new SentenceModel();
-                tempSingleTranslation.setText("And here is a sample translation. Index: [" + i + ", " + j + "]");
-                tempTranslationCollection.add(tempSingleTranslation);
-            }
-
-            translatedSentence = new TranslatedSentenceModel(tempMainSentence, tempTranslationCollection);
-            _translations.add(translatedSentence);
-        }
-
-    }
-
-    public void onTabSelected(Tab tab, FragmentTransaction ft)
-    {
-        // TODO Auto-generated method stub
-        mFragment = new ResultsFragmentTab();
-        // Attach browse_fragmentagment.xml layout
-        ft.add(android.R.id.content, mFragment);
-        ft.attach(mFragment);
-    }
-
-    public void onTabUnselected(Tab tab, FragmentTransaction ft)
-    {
-        // TODO Auto-generated method stub
-        // Remove browse_fragment.xmlnt.xml layout
-        ft.remove(mFragment);
-    }
-
-    public void onTabReselected(Tab tab, FragmentTransaction ft)
-    {
-        // TODO Auto-generated method stub
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////////////
-    /*
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
-
-        // Creating an array adapter to store the list of languages
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(inflater.getContext(), R.layout.result_list_item_1, languages);
-
-        //android.R.layout.simple_list_item_1
-        // Setting the list adapter for the ListFragment
-        setListAdapter(adapter);
-
-        return super.onCreateView(inflater, container, savedInstanceState);
-
-        return inflater.inflate(R.layout.results_fragment,container,false);
-    }
-                     */
-
 
 }
 
-
-
-/*
-    String[] languages = new String[]{
-            "Dutch",
-            "English",
-            "Russian",
-            "Swedish",
-            "Tamil",
-            "French",
-            "Estonian",
-            "Finnish",
-            "Ukrainian",
-            "Japanese",
-            "German",
-            "Chinese",
-            "Norwegian"
-    };
-*/
-
-
-
-
-
-/*
-
-public class
-ArrayAdapter
-extends BaseAdapter implements Filterable
-
-A concrete BaseAdapter that is backed by an array of arbitrary objects. By default this class expects that the provided resource id references a single TextView. If you want to use a more complex layout, use the constructors that also takes a field id. That field id should reference a TextView in the larger layout resource.
-However the TextView is referenced, it will be filled with the toString() of each object in the array. You can add lists or arrays of custom objects. Override the toString() method of your objects to determine what text will be displayed for the item in the list.
-To use something other than TextViews for the array display, for instance, ImageViews, or to have some of data besides toString() results fill the views, override getView(int, View, ViewGroup) to return the type of view you want.
- */

@@ -18,6 +18,7 @@
     <string name="sentenceRequestBoxGreeting">Enter the sentence ID</string>
     <string name="randomSentenceButtonLabel">Fetch a random sentence</string>
     <string name="resultsTabCaption">Results</string>
+    <string name="resultCurrentPage">Current page:</string>
 
     <string-array name="language_array">
         <item>..</item>
