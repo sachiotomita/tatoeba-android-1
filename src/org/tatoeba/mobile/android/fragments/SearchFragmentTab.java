@@ -67,7 +67,7 @@ public class SearchFragmentTab extends TatoebaMainFragment implements ActionBar.
         });
 
         // TEMPORARY SWITCH to facilitate a quicker debugging of the ListView on the "results" tab.
-        switchTab(MAIN_TABS.RESULTS);
+        //switchTab(MAIN_TABS.RESULTS);
     }
 
 

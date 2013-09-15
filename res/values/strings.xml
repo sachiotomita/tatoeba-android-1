@@ -23,10 +23,10 @@
     <string-array name="language_array">
         <item>..</item>
         <item>English</item>
-        <item>Hebrew</item>
-        <item>Estonian</item>
-        <item>Finnish</item>
+        <item>French</item>
         <item>Dutch</item>
+        <item>Estonian</item>
+        <item>Russian</item>
     </string-array>
 
 </resources>
