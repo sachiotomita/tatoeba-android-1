@@ -114,7 +114,7 @@
                     android:inputType="text"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/searchBoxGreeting"
+                    android:hint="@string/searchBoxGreeting"
                     android:id="@+id/editText" />
         </TableRow>
         <TableRow

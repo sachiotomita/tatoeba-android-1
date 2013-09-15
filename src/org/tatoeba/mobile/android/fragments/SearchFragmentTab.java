@@ -34,43 +34,37 @@ public class SearchFragmentTab extends TatoebaMainFragment implements ActionBar.
         // Get the view from search_fragment.xml
         _activity.setContentView(R.layout.search_fragment);
 
+        initialize();
 
+        // TEMPORARY SWITCH to facilitate a quicker debugging of the ListView on the "results" tab.
+        //switchTab(MAIN_TABS.RESULTS);
+    }
 
+    private void initialize()
+    {
         _searchBox = (EditText) _activity.findViewById(R.id.editText);
         _searchButton = (Button) _activity.findViewById(R.id.searchButton_searchFragment);
-
-
-
-        // remove the greeting text from the search box
-        _searchBox.setOnFocusChangeListener(new View.OnFocusChangeListener()
-        {
-            public void onFocusChange(View v, boolean hasFocus)
-            {
-                if(hasFocus && _firstTouch)
-                {
-                    _searchBox.setText("");
-                    _firstTouch = false;
-                }
-            }
-        });
-
 
         _searchButton.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
                 String searchString = SearchFragmentTab.this._searchBox.getText().toString();
+
+                // nothing to do if the string is empty
+                if(searchString.length() == 0 )
+                {
+                    _searchBox.setFocusableInTouchMode(true);
+                    _searchBox.requestFocus();
+                    return;
+                }
+
                 ((WelcomeActivity) SearchFragmentTab.this._activity).currentSearchString = searchString;
                 //SearchFragmentTab.this._actionBar.setSelectedNavigationItem(2);
                 switchTab(MAIN_TABS.RESULTS);
             }
         });
-
-        // TEMPORARY SWITCH to facilitate a quicker debugging of the ListView on the "results" tab.
-        //switchTab(MAIN_TABS.RESULTS);
     }
-
-
 
 
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
