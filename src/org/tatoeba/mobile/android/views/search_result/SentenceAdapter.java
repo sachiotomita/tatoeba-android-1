@@ -49,7 +49,7 @@ public class SentenceAdapter extends BaseAdapter
     @Override
     public Object getItem(int position)
     {
-        return position;
+        return data.get(position);
     }
 
     @Override
@@ -94,6 +94,13 @@ public class SentenceAdapter extends BaseAdapter
         originalTextView.setText( translationsString );
     }
 
+    @Override
+    public String toString()
+    {
+        return "SentenceAdapter{" +
+                "data=" + data +
+                '}';
+    }
 }
 
 

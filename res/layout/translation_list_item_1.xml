@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/translationLayout"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:paddingTop="3dp"
+              android:paddingBottom="3dp"
+              android:orientation="horizontal">
+
+<!-- android:background="@drawable/list_selector" -->
+
+
+    <!-- Translation -->
+    <TextView
+            android:id="@+id/sentenceTranslation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:typeface="sans"
+            android:textSize="14dip"
+            android:textStyle="normal"
+            android:layout_weight="0.85"
+            android:text="TRANSLATION"
+            />
+
+    <!-- Language -->
+    <TextView
+            android:id="@+id/languageOfTranslation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#CCCCCC"
+            android:textSize="14dip"
+            android:layout_weight="0.15"
+            android:text="[lng]"
+            />
+
+
+</LinearLayout>
+

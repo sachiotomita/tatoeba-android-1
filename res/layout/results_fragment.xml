@@ -28,6 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:spinnerMode="dropdown"
+                android:minWidth="52dp"
                 android:id="@+id/paginationSpinner"
                 android:prompt="@string/resultCurrentPage"
                 />

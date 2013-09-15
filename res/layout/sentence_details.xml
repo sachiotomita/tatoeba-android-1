@@ -5,23 +5,59 @@
               android:layout_height="fill_parent"
         >
 
+    <!-- Sentence ID -->
+    <TextView
+            android:id="@+id/main_sentence_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#CFCF59"
+            android:typeface="sans"
+            android:textSize="14dip"
+            android:textStyle="normal"
+            android:layout_marginTop="12dp"
+            android:text="@string/sentenceNumber"
+            android:textIsSelectable="true"
+            />
+
     <TextView
             android:id="@+id/main_sentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFEA00"
             android:typeface="sans"
-            android:textSize="16dip"
-            android:textStyle="bold"/>
+            android:text="MAIN_SENTENCE"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            />
+
+    <TextView
+            android:id="@+id/owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#DBDBDB"
+            android:typeface="sans"
+            android:text="Owner: ..................."
+            android:textSize="14dip"
+            android:textStyle="normal"
+            android:layout_marginTop="18dp"
+            android:layout_gravity="right"
+            />
 
     <!-- Translations -->
-    <TextView
-            android:id="@+id/translations"
+    <ListView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/translationList"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:textSize="14dip"
-            android:layout_marginTop="1dip" />
+            android:layout_height="fill_parent"
+            android:fastScrollEnabled="true"
+            android:divider="#929465"
+            android:dividerHeight="1dp"
+            android:drawSelectorOnTop="false"
+            android:visibility="visible"
+            android:layout_below="@id/main_sentence"
+            android:layout_marginTop="14dp"
+            />
 
 
 </LinearLayout>

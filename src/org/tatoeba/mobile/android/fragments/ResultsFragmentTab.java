@@ -24,6 +24,8 @@ import java.util.List;
 import org.tatoeba.mobile.android.R;
 import org.tatoeba.mobile.android.MainActivity;
 import org.tatoeba.mobile.android.SentenceDetailsActivity;
+import org.tatoeba.mobile.android.TatoebaApp;
+import org.tatoeba.mobile.android.enums.INTENT_EXTRAS;
 import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
 import org.tatoeba.mobile.android.models.SentenceModel;
 import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
@@ -79,8 +81,15 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id)
             {
-                Log.d("###", "view id: " + id);
+                Log.d("###", "view id: " + id + ", position: "+position);
+
+//                // get the clicked sentence's model
+//                TranslatedSentenceModel translatedSentence =
+//                        (TranslatedSentenceModel)parent.getAdapter().getItem(position);
+
+
                 Intent details = new Intent(_activity, SentenceDetailsActivity.class);
+                details.putExtra(INTENT_EXTRAS.CURRENT_TRANSLATION_POSITION.name(), position);
                 startActivity(details);
 
             }
@@ -105,23 +114,37 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
 
         TranslatedSentenceModel translatedSentence;
 
+        //The code below generates fake sentences and fake translations
+        // TODO: This fake-content generator should be moved to a service or model (think it over!), it should not be here.
+
+        String languages[] = {"eng", "ndl", "fra", "rus", "est", "fin", "ger", "spa"};
         for (int i = 0; i < 15; i++)
         {
             // fake the main sentence
             tempMainSentence = new SentenceModel();
-            tempMainSentence.setText("This is a sample main sentence. Index: [" + i + "]");
+            tempMainSentence.setText("This is a sample main sentence. A longer one, actually. Index: [" + i + "]");
+            tempMainSentence.setLanguage("eng");
+            tempMainSentence.setSentenceId( (int)(Math.random()*5000) );
             tempTranslationCollection = new ArrayList<SentenceModel>();
 
             // fake the translations to the main sentence
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < (int)(Math.random()*14); j++)
             {
                 tempSingleTranslation = new SentenceModel();
-                tempSingleTranslation.setText("And here is a sample translation. Index: [" + i + ", " + j + "]");
+                tempSingleTranslation.setText("And here is a sample translation. "+
+                        "A bit longer this time. And the index: [" + i + ", " + j + "]");
+
+                int tempLanguageIndex = j % 5;
+
+                tempSingleTranslation.setLanguage( languages[tempLanguageIndex] );
                 tempTranslationCollection.add(tempSingleTranslation);
             }
 
             translatedSentence = new TranslatedSentenceModel(tempMainSentence, tempTranslationCollection);
             _translations.add(translatedSentence);
+
+            TatoebaApp appState = ((TatoebaApp)_activity.getApplicationContext());
+            appState.setCurrentTranslations(_translations);
         }
 
     }
