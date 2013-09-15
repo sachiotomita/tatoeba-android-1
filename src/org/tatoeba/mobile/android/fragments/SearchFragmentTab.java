@@ -16,7 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import org.tatoeba.mobile.android.R;
-import org.tatoeba.mobile.android.WelcomeActivity;
+import org.tatoeba.mobile.android.MainActivity;
 import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
 
 public class SearchFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener {
@@ -37,7 +37,7 @@ public class SearchFragmentTab extends TatoebaMainFragment implements ActionBar.
         initialize();
 
         // TEMPORARY SWITCH to facilitate a quicker debugging of the ListView on the "results" tab.
-        //switchTab(MAIN_TABS.RESULTS);
+        switchTab(MAIN_TABS.BROWSE);
     }
 
     private void initialize()
@@ -59,7 +59,7 @@ public class SearchFragmentTab extends TatoebaMainFragment implements ActionBar.
                     return;
                 }
 
-                ((WelcomeActivity) SearchFragmentTab.this._activity).currentSearchString = searchString;
+                ((MainActivity) SearchFragmentTab.this._activity).currentSearchString = searchString;
                 //SearchFragmentTab.this._actionBar.setSelectedNavigationItem(2);
                 switchTab(MAIN_TABS.RESULTS);
             }

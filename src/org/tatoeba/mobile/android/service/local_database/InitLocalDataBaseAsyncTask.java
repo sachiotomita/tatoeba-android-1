@@ -7,7 +7,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import au.com.bytecode.opencsv.CSVParser;
-import org.tatoeba.mobile.android.WelcomeActivity;
+import org.tatoeba.mobile.android.MainActivity;
 import org.tatoeba.mobile.android.models.SentenceLinkModel;
 import org.tatoeba.mobile.android.models.SentenceModel;
 import org.tatoeba.mobile.android.models.UserModel;
@@ -38,7 +38,7 @@ public class InitLocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
 
 
     private ProgressBar _progressBar;
-    private WelcomeActivity _welcomeActivity;
+    private MainActivity _mainActivity;
     private ScrollView _scrollView;
     private Context _context;
     private TextView _splashText;
@@ -131,6 +131,7 @@ public class InitLocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
                         publishProgress((int) ((_processedDataLength / (float) _totalDataLength) * 100));
                     } catch (IOException e)
                     {
+                        Log.d("###", "Failed here: " +  mLine);
                         e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                     }
 
@@ -215,13 +216,13 @@ public class InitLocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>
     protected void onPostExecute(Long result)
     {
         //showDialog("Downloaded " + result + " bytes");
-        _welcomeActivity.onDataBaseCreated();
+        _mainActivity.onDataBaseCreated();
     }
 
-    public void setVisualSplashAssets(TextView textView, ProgressBar progressBar, WelcomeActivity welcomeActivity)
+    public void setVisualSplashAssets(TextView textView, ProgressBar progressBar, MainActivity mainActivity)
     {
         _splashText = textView;
         _progressBar = progressBar;
-        _welcomeActivity = welcomeActivity;
+        _mainActivity = mainActivity;
     }
 }

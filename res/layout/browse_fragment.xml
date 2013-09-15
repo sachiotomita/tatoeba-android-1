@@ -1,80 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/ResultsRootRelativeLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+        >
 
-<TableLayout
-        android:layout_span="3"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <TableRow
+    <EditText
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:inputType="number"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content"
+            android:hint="@string/sentenceRequestBoxGreeting"
+            android:id="@+id/sentenceIdInputBox"
+            />
+
+    <Button
+            android:layout_marginTop="6dp"
+            android:layout_below="@id/sentenceIdInputBox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Fetch by ID"
+            android:id="@+id/searchButton"
+            />
+
+
+    <LinearLayout
+            android:layout_marginTop="40dp"
+            android:id="@+id/randomParametersContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_below="@id/searchButton"
+            >
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fromLanguage"
+                            />
+                    <Spinner
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:spinnerMode="dialog"
+                            android:id="@id/srcLanguage"
+                            android:entries="@array/language_array"
+                            android:prompt="@string/srcLanguage_prompt"
+                            />
+        </LinearLayout>
         <Space
-                android:layout_width="20px"
-                android:layout_height="20px"
-                android:id="@+id/space" android:layout_column="3"/>
-    </TableRow>
+                android:layout_width="30dp"
+                android:layout_height="10dp"
+                />
 
-
-    <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-        <Space
-                android:layout_width="20px"
-                android:layout_height="20px"
-                android:id="@+id/space" android:layout_column="3"/>
-    </TableRow>
-
-    <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-        <EditText
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_column="0"
-                android:layout_span="2"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/sentenceRequestBoxGreeting"
-                android:id="@+id/sentenceIdInputBox" />
-    </TableRow>
-    <TableRow
+                android:orientation="vertical"
+                >
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/quantity"
+                            />
+                    <Spinner
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:spinnerMode="dropdown"
+                            android:id="@id/srcLanguage"
+                            android:entries="@array/items_number_array"
+                            android:prompt="@string/srcLanguage_prompt"
+                            />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+            android:layout_below="@id/randomParametersContainer"
+            android:layout_marginTop="16dp"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content"
+            android:text="@string/randomSentenceButtonLabel"
+            android:id="@+id/randomFetchButton"
+            />
 
-        <Button
-                android:layout_column="0"
-                android:layout_span="2"
-                android:layout_weight="1"
+
+</RelativeLayout>
+
+
+
+
+
+        <!--
+        <TableLayout
+                android:layout_span="3"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/searchButtonLabel"
-                android:id="@+id/searchButton"/>
+                android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
 
-    </TableRow>
-    <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-        <Space
-                android:layout_width="20px"
-                android:layout_height="35px"
-                android:id="@+id/space" android:layout_column="3"/>
-    </TableRow>
-    <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <Space
+                        android:layout_width="20px"
+                        android:layout_height="20px"
+                        android:id="@+id/space" android:layout_column="3"/>
+            </TableRow>
 
-        <Button
-                android:layout_column="0"
-                android:layout_span="2"
-                android:layout_weight="1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/randomSentenceButtonLabel"
-                android:id="@+id/randomFetchButton"/>
 
-    </TableRow>
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <Space
+                        android:layout_width="20px"
+                        android:layout_height="20px"
+                        android:id="@+id/space" android:layout_column="3"/>
+            </TableRow>
 
-    <!-- **************************************************************************************** -->
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
-</TableLayout>
+                <EditText
+                        android:gravity="center"
+                        android:layout_column="0"
+                        android:layout_span="2"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sentenceRequestBoxGreeting"
+                        android:id="@+id/sentenceIdInputBox" />
+            </TableRow>
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                <Button
+                        android:layout_column="0"
+                        android:layout_span="2"
+                        android:layout_weight="1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/searchButtonLabel"
+                        android:id="@+id/searchButton"/>
+
+            </TableRow>
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <Space
+                        android:layout_width="20px"
+                        android:layout_height="35px"
+                        android:id="@+id/space" android:layout_column="3"/>
+            </TableRow>
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                <Button
+                        android:layout_column="0"
+                        android:layout_span="2"
+                        android:layout_weight="1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/randomSentenceButtonLabel"
+                        android:id="@+id/randomFetchButton"/>
+
+            </TableRow>
+
+
+
+        </TableLayout>
+        -->

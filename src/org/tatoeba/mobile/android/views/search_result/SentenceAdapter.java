@@ -2,16 +2,13 @@ package org.tatoeba.mobile.android.views.search_result;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import org.tatoeba.mobile.android.R;
 import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
-import org.tatoeba.mobile.android.utils.ViewUtils;
 
 import java.util.ArrayList;
 
@@ -83,7 +80,7 @@ public class SentenceAdapter extends BaseAdapter
     {
         int translationsNum = translatedSentence.get_translations().size();
 
-        TextView originalTextView = (TextView)listItemView.findViewById(R.id.first_translation);
+        TextView originalTextView = (TextView)listItemView.findViewById(R.id.translations);
 
         String translationsString = "";
         String text;

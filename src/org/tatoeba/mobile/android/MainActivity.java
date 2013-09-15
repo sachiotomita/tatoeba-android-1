@@ -21,7 +21,7 @@ import org.tatoeba.mobile.android.fragments.SearchFragmentTab;
 import org.tatoeba.mobile.android.service.local_database.InitLocalDataBaseAsyncTask;
 import org.tatoeba.mobile.android.service.local_database.TatoebaDBHelper;
 
-public class WelcomeActivity extends Activity
+public class MainActivity extends Activity
 {
     // Declare Tab Variable
     private Tab tab;
@@ -39,6 +39,10 @@ public class WelcomeActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         _context = this.getBaseContext();
+
+        // Delete the database each time the app is started!
+        //_context.deleteDatabase(TatoebaDBHelper.DATABASE_NAME);
+
         boolean isDBInitialized = TatoebaDBHelper.databaseExists(_context);
 
         if (isDBInitialized)

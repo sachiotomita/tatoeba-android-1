@@ -11,6 +11,7 @@ package org.tatoeba.mobile.android.fragments;
 
 import android.app.*;
 import android.app.ActionBar.Tab;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.tatoeba.mobile.android.R;
-import org.tatoeba.mobile.android.WelcomeActivity;
+import org.tatoeba.mobile.android.MainActivity;
+import org.tatoeba.mobile.android.SentenceDetailsActivity;
 import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
 import org.tatoeba.mobile.android.models.SentenceModel;
 import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
@@ -31,11 +33,11 @@ import org.tatoeba.mobile.android.views.search_result.SentenceAdapter;
 public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener
 {
 
-    private WelcomeActivity _welcomeActivity;
+    private MainActivity _mainActivity;
 
     private QueryTatoebaTask _service;
     private CSVParser _csvParser;
-    private ListView _listView;
+    private ListView _resultsListView;
     SentenceAdapter adapter;
 
 
@@ -51,21 +53,12 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         this._actionBar.setSelectedNavigationItem(tab.ordinal());
     }
 
-
-    private void onCreateTatoebaMainFragment(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        _activity = getActivity();
-        _actionBar = this.getActivity().getActionBar();
-    }
 ////////////////////////////////////////////////////////////
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-        onCreateTatoebaMainFragment(savedInstanceState);
+
         super.onCreate(savedInstanceState);
         initialize();
         //handleSearchString();
@@ -73,38 +66,34 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         // Getting adapter by passing xml data ArrayList
         adapter = new SentenceAdapter(_activity, _translations);
 
-        _listView = new ListView(_activity.getBaseContext());
+        _resultsListView = new ListView(_activity.getBaseContext());
 
-        _listView = (ListView) _activity.findViewById(R.id.resultList);
-        _listView.setAdapter(adapter);
+        _resultsListView = (ListView) _activity.findViewById(R.id.resultList);
+        _resultsListView.setAdapter(adapter);
 
-        /////////////////////////////////////////////////////////////////////
-        //setListAdapter(adapter);
-        //list = (ListView) _activity.findViewById(R.id.resultList);
 
-        /*
         // Click event for single list row
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        _resultsListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id)
             {
                 Log.d("###", "view id: " + id);
+                Intent details = new Intent(_activity, SentenceDetailsActivity.class);
+                startActivity(details);
+
             }
         });
-          */
 
 
     }
 
 
-
     private void initialize()
     {
-        _welcomeActivity = (WelcomeActivity) _activity;
-        _welcomeActivity.setContentView(R.layout.results_fragment);
+        _mainActivity = (MainActivity) _activity;
+        _mainActivity.setContentView(R.layout.results_fragment);
 
         _translations = new ArrayList<TranslatedSentenceModel>();
 
@@ -142,11 +131,11 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         _paginationSpinner = (Spinner) _activity.findViewById(R.id.paginationSpinner);
 
 
-        List<String> spinnerArray =  new ArrayList<String>();
+        List<String> spinnerArray = new ArrayList<String>();
 
         for (int i = 0; i < 8; i++)
         {
-            spinnerArray.add(i+"");
+            spinnerArray.add(i + "");
         }
 
 
@@ -161,13 +150,13 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
-                Log.d("###","Pagination spinner selected item: " + _paginationSpinner.getSelectedItem());
+                Log.d("###", "Pagination spinner selected item: " + _paginationSpinner.getSelectedItem());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent)
             {
-                Log.d("###","Pagination spinner nothing selected " + _paginationSpinner.getSelectedItem());
+                Log.d("###", "Pagination spinner nothing selected " + _paginationSpinner.getSelectedItem());
             }
         });
 
@@ -199,7 +188,7 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
     private void handleSearchString()
     {
         // try to access the search string
-        String searchStr = _welcomeActivity.currentSearchString;
+        String searchStr = _mainActivity.currentSearchString;
 
         // nothing to do if no search string was set.
         if (searchStr == null || searchStr.isEmpty())
@@ -270,7 +259,6 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         }
                    */
     }
-
 
 
 }

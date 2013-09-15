@@ -17,7 +17,7 @@ import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
 /**
  * The class is intended to abstract the common properties and methods of all the main menu tab fragments.
  */
-public class TatoebaMainFragment extends Fragment
+public abstract class TatoebaMainFragment extends Fragment
 {
 
     protected Fragment mFragment;
