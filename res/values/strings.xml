@@ -21,7 +21,7 @@
     <string name="resultCurrentPage">Current page:</string>
 
     <string-array name="language_array">
-        <item>any</item>
+        <item>..</item>
         <item>English</item>
         <item>French</item>
         <item>Dutch</item>
