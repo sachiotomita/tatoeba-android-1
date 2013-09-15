@@ -9,7 +9,6 @@ package org.tatoeba.mobile.android.fragments;
  */
 
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
@@ -19,52 +18,61 @@ import android.widget.Button;
 import android.widget.EditText;
 import org.tatoeba.mobile.android.R;
 
-public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener {
+public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener
+{
 
     private EditText _sentenceIdBox;
     protected boolean _firstTouch = true;
+    private Button _searchButton;
     private Button _randomFetchButton;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+
         // Get the view from browse_fragmentagment.xml
-
-
         _activity.setContentView(R.layout.browse_fragment);
-        _sentenceIdBox = (EditText) _activity.findViewById(R.id.sentenceIdInputBox);
-        initializeButtons();
 
-        // remove the greeting text from the sentence ID box
-        _sentenceIdBox.setOnFocusChangeListener(new View.OnFocusChangeListener()
+        initialize();
+    }
+
+    private void initialize()
+    {
+        _sentenceIdBox = (EditText) _activity.findViewById(R.id.sentenceIdInputBox);
+        _searchButton = (Button) _activity.findViewById(R.id.searchButton);
+        _searchButton.setOnClickListener(new View.OnClickListener()
         {
-            public void onFocusChange(View v, boolean hasFocus)
+            @Override
+            public void onClick(View v)
             {
-                if(hasFocus && _firstTouch)
+                // nothing to do if the sentence ID is empty
+                if (_sentenceIdBox.length() == 0)
                 {
-                    _sentenceIdBox.setText("");
-                    _firstTouch = false;
+                    _sentenceIdBox.setFocusableInTouchMode(true);
+                    _sentenceIdBox.requestFocus();
+                    return;
                 }
+
+                //Handle the button click here
             }
         });
 
-    }
 
-    private void initializeButtons()
-    {
         _randomFetchButton = (Button) _activity.findViewById(R.id.randomFetchButton);
         _randomFetchButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-
+                //Handle the button click here
             }
         });
     }
 
 
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+    public void onTabSelected(Tab tab, FragmentTransaction ft)
+    {
         // TODO Auto-generated method stub
         mFragment = new BrowseFragmentTab();
         // Attach browse_fragmentagment.xml layout
@@ -72,13 +80,15 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
         ft.attach(mFragment);
     }
 
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+    public void onTabUnselected(Tab tab, FragmentTransaction ft)
+    {
         // TODO Auto-generated method stub
         // Remove browse_fragment.xmlnt.xml layout
         ft.remove(mFragment);
     }
 
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    public void onTabReselected(Tab tab, FragmentTransaction ft)
+    {
         // TODO Auto-generated method stub
 
     }

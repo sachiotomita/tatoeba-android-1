@@ -14,7 +14,7 @@
     <string name="srcLanguage_prompt">From</string>
     <string name="destLanguage_prompt">To</string><string name="defaultSearchText">Your search items</string>
     <string name="searchButtonLabel">Search</string>
-    <string name="searchBoxGreeting">Enter the words to search for.</string>
+    <string name="searchBoxGreeting">Enter the words to search for</string>
     <string name="sentenceRequestBoxGreeting">Enter the sentence ID</string>
     <string name="randomSentenceButtonLabel">Fetch a random sentence</string>
     <string name="resultsTabCaption">Results</string>
