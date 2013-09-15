@@ -21,9 +21,9 @@
     <string name="resultCurrentPage">Current page:</string>
 
     <string-array name="language_array">
-        <item>..</item>
+        <item>any</item>
         <item>English</item>
-        <item>French</item>
+        <item>French</item>                      s
         <item>Dutch</item>
         <item>Estonian</item>
         <item>Russian</item>
