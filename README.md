@@ -6,6 +6,7 @@ An early draft.
 
 
 #TODO:
+* add onAttach () to tatoeba's fragment superclass. Save activity there (?)
 * Slide left/right in the detailed sentence activity to move to a previous/next one.
 * Slide left/right in the results fragment to move between the pages.
 * Don't show all the complete translations in the "Results". Display either only flags for the translations or the translations, shortened to one line.
