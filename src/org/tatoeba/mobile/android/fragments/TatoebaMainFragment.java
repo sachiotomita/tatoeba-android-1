@@ -37,9 +37,13 @@ public abstract class TatoebaMainFragment extends Fragment
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        _activity = getActivity();
-        _actionBar = this.getActivity().getActionBar();
     }
 
-
+    @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+        _activity = activity;
+        _actionBar = _activity.getActionBar();
+    }
 }
