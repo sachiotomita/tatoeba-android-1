@@ -5,34 +5,15 @@
                 xmlns:android="http://schemas.android.com/apk/res/android"
         >
 
-    <EditText
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:inputType="number"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/sentenceRequestBoxGreeting"
-            android:id="@+id/sentenceIdInputBox"
-            />
-
-    <Button
-            android:layout_marginTop="6dp"
-            android:layout_below="@id/sentenceIdInputBox"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Fetch by ID"
-            android:id="@+id/searchButton"
-            />
-
+    <!-- Get a random sentence  -->
 
     <LinearLayout
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="18dp"
             android:id="@+id/randomParametersContainer"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:layout_below="@id/searchButton"
             >
 
             <LinearLayout
@@ -94,6 +75,30 @@
             android:text="@string/randomSentenceButtonLabel"
             android:id="@+id/randomFetchButton"
             />
+
+
+    <!-- Get sentence by ID -->
+
+    <EditText
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:inputType="number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sentenceRequestBoxGreeting"
+            android:id="@+id/sentenceIdInputBox"
+            android:layout_below="@id/randomFetchButton"
+            />
+
+    <Button
+            android:layout_marginTop="6dp"
+            android:layout_below="@id/sentenceIdInputBox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Fetch by ID"
+            android:id="@+id/searchButton"
+            />
+
 
 
 </RelativeLayout>

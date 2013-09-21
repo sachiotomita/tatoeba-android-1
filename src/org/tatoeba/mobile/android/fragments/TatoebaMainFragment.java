@@ -19,7 +19,6 @@ import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
  */
 public abstract class TatoebaMainFragment extends Fragment
 {
-
     protected Fragment mFragment;
     protected ActionBar _actionBar;
     protected Activity _activity;
