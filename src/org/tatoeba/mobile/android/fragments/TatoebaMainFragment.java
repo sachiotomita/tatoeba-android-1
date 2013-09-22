@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import org.tatoeba.mobile.android.MainActivity;
 import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
 
 /**
@@ -21,12 +22,12 @@ public abstract class TatoebaMainFragment extends Fragment
 {
     protected Fragment mFragment;
     protected ActionBar _actionBar;
-    protected Activity _activity;
+    protected MainActivity _activity;
 
     /**
      * Selects and opens one of the main menu tabs
      */
-    protected void switchTab(MAIN_TABS tab)
+    public void switchTab(MAIN_TABS tab)
     {
         //Log.d("###","tab.ordinal()="+tab.ordinal());
         this._actionBar.setSelectedNavigationItem(tab.ordinal());
@@ -42,7 +43,8 @@ public abstract class TatoebaMainFragment extends Fragment
     public void onAttach(Activity activity)
     {
         super.onAttach(activity);
-        _activity = activity;
+        _activity = (MainActivity)activity;
+        _activity = (MainActivity)getActivity();
         _actionBar = _activity.getActionBar();
     }
 }

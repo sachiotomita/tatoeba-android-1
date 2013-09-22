@@ -27,6 +27,8 @@ import org.tatoeba.mobile.android.SentenceDetailsActivity;
 import org.tatoeba.mobile.android.TatoebaApp;
 import org.tatoeba.mobile.android.enums.INTENT_EXTRAS;
 import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
+import org.tatoeba.mobile.android.fragments.enums.SEARCH_ACTIONS;
+import org.tatoeba.mobile.android.models.RandomSentenceRequestModel;
 import org.tatoeba.mobile.android.models.SentenceModel;
 import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
 import org.tatoeba.mobile.android.service.local_database.QueryTatoebaTask;
@@ -46,14 +48,6 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
     private ArrayList<TranslatedSentenceModel> _translations;
     private Spinner _paginationSpinner;
 
-    /**
-     * Selects and opens one of the main menu tabs
-     */
-    protected void switchTab(MAIN_TABS tab)
-    {
-        //Log.d("###","tab.ordinal()="+tab.ordinal());
-        this._actionBar.setSelectedNavigationItem(tab.ordinal());
-    }
 
 ////////////////////////////////////////////////////////////
 
@@ -62,6 +56,8 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
     {
 
         super.onCreate(savedInstanceState);
+
+
         initialize();
         //handleSearchString();
 
@@ -96,6 +92,25 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         });
 
 
+        dispatchSearch();
+
+    }
+
+    private void dispatchSearch()
+    {
+        MainActivity mainActivity = (MainActivity) getActivity();
+        SEARCH_ACTIONS searchAction = mainActivity.get_searchAction();
+
+        if (searchAction == null) return;
+
+        showProgressIndication();
+
+        switch (searchAction)
+        {
+            case FETCH_RANDOM : fetchRandom(); break;
+            case FETCH_BY_ID: fetchById(); break;
+            case SEARCH: search(); break;
+        }
     }
 
 
@@ -195,6 +210,38 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         ft.attach(mFragment);
     }
 
+    @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+    }
+
+    private void showProgressIndication()
+    {
+        _activity.setContentView(R.layout.results_fragment_progress);
+    }
+
+    private void hideProgressIndication()
+    {
+        _activity.setContentView(R.layout.results_fragment);
+    }
+
+    private void fetchRandom()
+    {
+        Log.d("###", "Fetching a random sentence");
+        RandomSentenceRequestModel request = _activity.get_randomSentenceRequest();
+    }
+
+    private void fetchById()
+    {
+        Log.d("###", "Fetching a sentence by id");
+    }
+
+    private void search()
+    {
+        Log.d("###", "Searching for sentences");
+    }
+
     public void onTabUnselected(Tab tab, FragmentTransaction ft)
     {
         // TODO Auto-generated method stub
@@ -207,81 +254,6 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         // TODO Auto-generated method stub
     }
 
-
-    private void handleSearchString()
-    {
-        // try to access the search string
-        String searchStr = _mainActivity.currentSearchString;
-
-        // nothing to do if no search string was set.
-        if (searchStr == null || searchStr.isEmpty())
-            return;
-
-
-        //_tempText.setText(searchStr);
-
-        /*
-        if (_service == null) _service = new QueryTatoebaTask();
-        _service.setVisualAssets(_tempText, _progressBar);
-        _service.execute(searchStr);
-
-
-        //////////////////////////////////////////////////////////////////////////////
-        // Below is an experimental part, here I try to parse CSV from a file.
-        // CSV files are planned to be used to populate the DB with the initial values.
-        // This code should eventually be moved to the DB related classes.
-        //
-
-
-        ArrayList<String> tempList =  new ArrayList<String>();
-        tempList.add("temp");
-        tempList.add("temp 2");
-
-        String[] record = tempList.toArray(new String[tempList.size()]);
-
-
-        _csvParser = new CSVParser('\t');
-        try
-        {
-            record = _csvParser.parseLine("12312\teng\tThis is a text!");
-        } catch (IOException e)
-        {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-
-
-
-        try {
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(_activity.getAssets().open("db_init_sentences.csv"), "UTF-8"));
-
-            // do reading, usually loop until end of file reading
-            String mLine = reader.readLine();
-            while (mLine != null) {
-                //process line
-
-                try
-                {
-                    record = _csvParser.parseLine(mLine);
-                    _tempText.append("\n" + record[0]);
-                    _tempText.append("\n" + record[1]);
-                    _tempText.append("\n" + record[2] + "\n");
-
-                } catch (IOException e)
-                {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                }
-
-
-                mLine = reader.readLine();
-            }
-
-            reader.close();
-        } catch (IOException e) {
-            //log the exception
-        }
-                   */
-    }
 
 
 }

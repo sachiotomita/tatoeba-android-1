@@ -18,6 +18,10 @@ import android.widget.TextView;
 import org.tatoeba.mobile.android.fragments.BrowseFragmentTab;
 import org.tatoeba.mobile.android.fragments.ResultsFragmentTab;
 import org.tatoeba.mobile.android.fragments.SearchFragmentTab;
+import org.tatoeba.mobile.android.fragments.TatoebaMainFragment;
+import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
+import org.tatoeba.mobile.android.fragments.enums.SEARCH_ACTIONS;
+import org.tatoeba.mobile.android.models.RandomSentenceRequestModel;
 import org.tatoeba.mobile.android.service.local_database.InitLocalDataBaseAsyncTask;
 import org.tatoeba.mobile.android.service.local_database.TatoebaDBHelper;
 
@@ -27,12 +31,22 @@ public class MainActivity extends Activity
     private Tab tab;
 
     /**
-     * Contains the latest search string
+     * Contains the latest random request.
      */
-    public String currentSearchString;
+    private RandomSentenceRequestModel _randomSentenceRequest;
+
+    //TODO: add model for fetching by id
+    // private ... _fetchByIdRequest;
+
+    //TODO: add model for searching by keywords
+    // private ... _seachRequest;
+
+   private SEARCH_ACTIONS _searchAction;
+
     private Context _context;
     private TextView _splashText;
     private ProgressBar _splashProgressBar;
+    private ActionBar _actionBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -77,34 +91,80 @@ public class MainActivity extends Activity
     private void showMainView()
     {
         // Create the actionbar
-        ActionBar actionBar = getActionBar();
+        _actionBar = getActionBar();
 
         // Hide Actionbar Icon
-        actionBar.setDisplayShowHomeEnabled(false);
+        _actionBar.setDisplayShowHomeEnabled(false);
 
         // Hide Actionbar Title
-        actionBar.setDisplayShowTitleEnabled(false);
+        _actionBar.setDisplayShowTitleEnabled(false);
 
         // Create Actionbar Tabs
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        _actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         // Create "Search" Tab
-        tab = actionBar.newTab().setTabListener(new SearchFragmentTab());
+        tab = _actionBar.newTab().setTabListener(new SearchFragmentTab());
         // Create your own custom icon
         //tab.setIcon(R.drawable.tab1);
         tab.setText(getString(R.string.searchTabCaption));
-        actionBar.addTab(tab);
+        _actionBar.addTab(tab);
 
         // Create "Browse"  Tab
-        tab = actionBar.newTab().setTabListener(new BrowseFragmentTab());
+        tab = _actionBar.newTab().setTabListener(new BrowseFragmentTab());
         // Set Tab Title
         tab.setText(getString(R.string.browseTabCaption));
-        actionBar.addTab(tab);
+        _actionBar.addTab(tab);
 
         // Create "Results" Tab
-        tab = actionBar.newTab().setTabListener(new ResultsFragmentTab());
+        tab = _actionBar.newTab().setTabListener(new ResultsFragmentTab());
         // Set Tab Title
         tab.setText(getString(R.string.resultsTabCaption));
-        actionBar.addTab(tab);
+        _actionBar.addTab(tab);
     }
+
+
+    public void fetchRandomSentence(RandomSentenceRequestModel request)
+    {
+        _randomSentenceRequest = request;
+        _searchAction = SEARCH_ACTIONS.FETCH_RANDOM;
+        _actionBar.setSelectedNavigationItem( MAIN_TABS.RESULTS.ordinal() );
+    }
+
+    public void fetchSentenceById()
+    {
+        // arrange the request
+        _searchAction = SEARCH_ACTIONS.FETCH_BY_ID;
+        _actionBar.setSelectedNavigationItem( MAIN_TABS.RESULTS.ordinal() );
+    }
+
+    public void searchForSentences()
+    {
+        // arrange the request
+        _searchAction = SEARCH_ACTIONS.SEARCH;
+        _actionBar.setSelectedNavigationItem( MAIN_TABS.RESULTS.ordinal() );
+    }
+
+    /**
+     * Returns the latest search action requested.
+     * The value is also erased after one access.
+     * @return
+     */
+    public SEARCH_ACTIONS get_searchAction()
+    {
+        SEARCH_ACTIONS searchAction = _searchAction;
+        _searchAction = null;
+        return searchAction;
+    }
+
+    /**
+     * Returns a model with the data for a random sentence request.
+     * @return
+     */
+    public RandomSentenceRequestModel get_randomSentenceRequest()
+    {
+        return _randomSentenceRequest;
+    }
+
+
+
 }

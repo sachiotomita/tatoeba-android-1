@@ -32,7 +32,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:spinnerMode="dialog"
-                            android:id="@id/srcLanguage"
+                            android:id="@+id/randomSrcLangSpinner"
                             android:entries="@array/language_array"
                             android:prompt="@string/srcLanguage_prompt"
                             />
@@ -57,7 +57,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:spinnerMode="dropdown"
-                            android:id="@id/srcLanguage"
+                            android:id="@+id/randomResultsNumberSpinner"
                             android:entries="@array/items_number_array"
                             android:prompt="@string/srcLanguage_prompt"
                             android:minWidth="52dp"

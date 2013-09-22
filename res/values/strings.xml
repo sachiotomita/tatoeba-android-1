@@ -23,13 +23,16 @@
     <string name="quantity">Quantity:</string>
     <string name="sentenceNumber">Sentence Nº </string>
 
+
+
     <string-array name="language_array">
         <item>..</item>
-        <item>English</item>
-        <item>French</item>
-        <item>Dutch</item>
-        <item>Estonian</item>
-        <item>Russian</item>
+        <item>eng</item>
+        <item>fra</item>
+        <item>nld</item>
+        <item>est</item>
+        <item>rus</item>
+        <item>fin</item>
     </string-array>
 
     <string-array name="items_number_array">

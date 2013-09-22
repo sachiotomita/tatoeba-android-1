@@ -59,11 +59,15 @@ public class SearchFragmentTab extends TatoebaMainFragment implements ActionBar.
                     return;
                 }
 
-                ((MainActivity) SearchFragmentTab.this._activity).currentSearchString = searchString;
-                //SearchFragmentTab.this._actionBar.setSelectedNavigationItem(2);
-                switchTab(MAIN_TABS.RESULTS);
+                searchForSentences();
             }
         });
+    }
+
+    private void searchForSentences()
+    {
+        //Add a SearchSentencesRequestModel instance  here
+        _activity.searchForSentences();
     }
 
 

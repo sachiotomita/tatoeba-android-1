@@ -13,10 +13,13 @@ import android.os.Bundle;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.app.ActionBar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import org.tatoeba.mobile.android.R;
+import org.tatoeba.mobile.android.models.RandomSentenceRequestModel;
 
 public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener
 {
@@ -25,6 +28,8 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
     protected boolean _firstTouch = true;
     private Button _searchButton;
     private Button _randomFetchButton;
+    private Spinner _randomResultsNumberSpinner;
+    private Spinner _randomSrcLangSpinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -39,10 +44,14 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
 
     private void initialize()
     {
+
+        // SENTENCE BY ID
+
         _sentenceIdBox = (EditText) _activity.findViewById(R.id.sentenceIdInputBox);
         _searchButton = (Button) _activity.findViewById(R.id.searchButton);
         _searchButton.setOnClickListener(new View.OnClickListener()
         {
+
             @Override
             public void onClick(View v)
             {
@@ -53,11 +62,11 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
                     _sentenceIdBox.requestFocus();
                     return;
                 }
-
-                //Handle the button click here
+                fetchById();
             }
         });
 
+        // RANDOM SENTENCE
 
         _randomFetchButton = (Button) _activity.findViewById(R.id.randomFetchButton);
         _randomFetchButton.setOnClickListener(new View.OnClickListener()
@@ -65,11 +74,39 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
             @Override
             public void onClick(View v)
             {
-                //Handle the button click here
+                fetchRandomSentence();
             }
         });
+
+        _randomSrcLangSpinner = (Spinner) _activity.findViewById(R.id.randomSrcLangSpinner);
+        _randomResultsNumberSpinner = (Spinner) _activity.findViewById(R.id.randomResultsNumberSpinner);
+
+
     }
 
+    private void fetchRandomSentence()
+    {
+
+        RandomSentenceRequestModel request = new RandomSentenceRequestModel();
+
+        String selectedLanguage = _randomSrcLangSpinner.getSelectedItem().toString();
+        int selectedAmount = Integer.parseInt( _randomResultsNumberSpinner.getSelectedItem().toString() );
+
+        request.set_language(selectedLanguage);
+        request.set_numberOfResults(selectedAmount);
+
+        Log.d("###", "Fetch random sentence, request="+request);
+
+        _activity.fetchRandomSentence(request);
+    }
+
+
+
+    private void fetchById()
+    {
+        //Add a FetchByIdRequestModel instance request here
+        _activity.fetchSentenceById();
+    }
 
     public void onTabSelected(Tab tab, FragmentTransaction ft)
     {
