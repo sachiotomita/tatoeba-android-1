@@ -89,7 +89,11 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
         String selectedLanguage = _randomSrcLangSpinner.getSelectedItem().toString();
         int selectedAmount = Integer.parseInt( _randomResultsNumberSpinner.getSelectedItem().toString() );
 
-        request.set_language(selectedLanguage);
+        request.set_sourceLanguage(selectedLanguage);
+
+        // TODO: #makeDestinationLanguageWork: read the destination language from the dest. spinner/
+        request.set_targetLanguage("eng");
+
         request.set_numberOfResults(selectedAmount);
 
         Log.d("###", "Fetch random sentence, request="+request);

@@ -40,4 +40,13 @@ public class TableLinks
         throw new Error("Not implemented!");
         //return TABLE_UPGRADE;
     }
+
+    /**
+     * Returns {tableName.col1, tableName.col2, ... }
+     * @return
+     */
+    public static  String[] getFullyQualifiedColumnNames()
+    {
+        return  TableHelper.getFullyQualifiedColumnNames(TABLE_NAME,ALL_COLUMNS);
+    }
 }

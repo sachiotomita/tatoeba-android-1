@@ -28,7 +28,7 @@ public class SentenceLinkModel
     }
 
     /**
-     * Set the ID of the left sentence.
+     * Set the ID of the left sentence (the original)
      * @param sentenceID
      */
     public void setLeftId(int sentenceID)
@@ -37,7 +37,7 @@ public class SentenceLinkModel
     }
 
     /**
-     * Set the ID of the right sentence.
+     * Set the ID of the right sentence (the translation)
      * @param sentenceID
      */
     public void setRightId(int sentenceID)
@@ -46,7 +46,7 @@ public class SentenceLinkModel
     }
 
     /**
-     * ID of the left sentence
+     * ID of the left sentence (the original)
      * @return
      */
     public int getLeftId()
@@ -55,7 +55,7 @@ public class SentenceLinkModel
     }
 
     /**
-     * ID of the right sentence
+     * ID of the right sentence (the translation)
      * @return
      */
     public int getRightId()

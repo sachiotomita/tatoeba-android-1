@@ -3,7 +3,6 @@ package org.tatoeba.mobile.android.service.local_database;
 import android.content.Context;
 import android.os.AsyncTask;
 import org.tatoeba.mobile.android.models.RandomSentenceRequestModel;
-import org.tatoeba.mobile.android.models.SentenceModel;
 import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
 import org.tatoeba.mobile.android.service.ITatoebaDBCallbackAPI;
 import org.tatoeba.mobile.android.service.local_database.data_sources.RandomSentenceDataSource;
@@ -29,7 +28,7 @@ public class FetchRandomDataBaseAsyncTask extends AsyncTask<RandomSentenceReques
 
     private Context _context;
     private ITatoebaDBCallbackAPI _callbackAPI;
-    private TranslatedSentenceModel[] _translations;
+    private ArrayList<TranslatedSentenceModel> _translations;
 
     public FetchRandomDataBaseAsyncTask(Context context)
     {
@@ -41,29 +40,11 @@ public class FetchRandomDataBaseAsyncTask extends AsyncTask<RandomSentenceReques
 
         RandomSentenceDataSource dataSource = new RandomSentenceDataSource(_context);
         dataSource.open();
+        RandomSentenceRequestModel requestModel = params[0];
 
-        SentenceModel[] sentences = dataSource.fetchRandomSentences(params[0]);
+        _translations = dataSource.fetchRandomSentences(requestModel);
 
-        // nothing found
-        if (sentences == null)
-        {
-            _translations = null;
-            return new Long(0);
-        }
-
-        _translations = new TranslatedSentenceModel[ sentences.length ];
-
-        ArrayList<SentenceModel> translationsPerSentence;
-
-        for (int i = 0; i < sentences.length; i++)
-        {
-            SentenceModel sentence = sentences[i];
-            translationsPerSentence = new ArrayList<SentenceModel>();
-            _translations[i] = new TranslatedSentenceModel(sentence, translationsPerSentence);
-
-        }
-
-        return new Long(0);
+        return Long.valueOf(0);
     }
 
 

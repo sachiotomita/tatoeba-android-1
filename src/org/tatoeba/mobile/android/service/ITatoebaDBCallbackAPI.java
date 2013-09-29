@@ -3,6 +3,8 @@ package org.tatoeba.mobile.android.service;
 
 import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
 
+import java.util.ArrayList;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +22,6 @@ public interface ITatoebaDBCallbackAPI
      * @param sentences
      */
     //void setRandomFetchResult(TranslatedSentenceModel sentence);
-    void setRandomFetchResult(TranslatedSentenceModel[] sentences);
+    void setRandomFetchResult(ArrayList<TranslatedSentenceModel> sentences);
 
 }

@@ -11,17 +11,30 @@ package org.tatoeba.mobile.android.models;
 
 public class RandomSentenceRequestModel
 {
-    private String _language;
+    private String _srcLanguage;
     private int _numberOfResults;
+    private String _targetLanguage;
 
     /**
      * What is the language to fetch the random results in.
      * @param language
      */
-    public void set_language(String language)
+    public void set_sourceLanguage(String language)
     {
-        _language = language;
+        _srcLanguage = language;
     }
+
+
+    /**
+     * What is the language to translate the random results into.
+     * @param language
+     */
+    public void set_targetLanguage(String language)
+    {
+        _targetLanguage = language;
+    }
+
+
 
     /**
      * How many random results to fetch.
@@ -45,16 +58,27 @@ public class RandomSentenceRequestModel
      * What is the language to fetch the random results in.
      * @return
      */
-    public String get_language()
+    public String get_sourceLanguage()
     {
-        return _language;
+        return _srcLanguage;
     }
+
+    /**
+     * What is the language to translate the random results into.
+     * @return
+     */
+    @SuppressWarnings("SpellCheckingInspection")
+    public String get_targetLanguage()
+    {
+        return _targetLanguage;
+    }
+
 
     @Override
     public String toString()
     {
         return "RandomSentenceRequestModel{" +
-                "_language='" + _language + '\'' +
+                "_srcLanguage='" + _srcLanguage + '\'' +
                 ", _numberOfResults=" + _numberOfResults +
                 '}';
     }

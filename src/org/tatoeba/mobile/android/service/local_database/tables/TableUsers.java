@@ -35,10 +35,20 @@ public class TableUsers
         return TABLE_CREATE;
     }
 
+    /**
+     * Returns {tableName.col1, tableName.col2, ... }
+     * @return
+     */
+    public static  String[] getFullyQualifiedColumnNames()
+    {
+        return  TableHelper.getFullyQualifiedColumnNames(TABLE_NAME,ALL_COLUMNS);
+    }
+
     /** Returns an SQL statement for upgrading the table. */
     public static String onUpgrade()
     {
         throw new Error("Not implemented!");
         //return TABLE_UPGRADE;
     }
+
 }

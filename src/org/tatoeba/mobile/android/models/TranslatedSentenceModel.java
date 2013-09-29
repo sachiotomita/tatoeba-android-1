@@ -38,6 +38,12 @@ public class TranslatedSentenceModel
         this._translations = _translations;
     }
 
+    public void addTranslation(SentenceModel translation)
+    {
+        if (_translations == null) _translations = new ArrayList<SentenceModel>();
+        _translations.add(translation);
+    }
+
     /**
      * The original sentence, which was translated.
      * @return

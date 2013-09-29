@@ -77,11 +77,9 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
 //                TranslatedSentenceModel translatedSentence =
 //                        (TranslatedSentenceModel)parent.getAdapter().getItem(position);
 
-
                 Intent details = new Intent(_activity, SentenceDetailsActivity.class);
                 details.putExtra(INTENT_EXTRAS.CURRENT_TRANSLATION_POSITION.name(), position);
                 startActivity(details);
-
             }
         });
     }
@@ -106,78 +104,15 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
             case SEARCH: search(); break;
         }
 
-        ///////////////////////////////////////////////////////////////////
-
-        return ;
+        //TODO: #resetSearchAction:  uncomment the next line. It should be the right thing to do here.
+        //searchAction = null;
     }
-
 
     private void initialize()
     {
         _mainActivity =  _activity;
-        _mainActivity.setContentView(R.layout.results_fragment);
-
-        /*
-        _translations = new ArrayList<TranslatedSentenceModel>();
-
-      //  initializePagination();
-
-        SentenceModel tempMainSentence;
-        SentenceModel tempSingleTranslation;
-        ArrayList<SentenceModel> tempTranslationCollection;
-
-        TranslatedSentenceModel translatedSentence;
-
-        //The code below generates fake sentences and fake translations
-        // TODO: This fake-content generator should be moved to a service or model (think it over!), it should not be here.
-
-        String languages[] = {"eng", "ndl", "fra", "rus", "est", "fin", "ger", "spa"};
-        for (int i = 0; i < 15; i++)
-        {
-            // fake the main sentence
-            tempMainSentence = new SentenceModel();
-            tempMainSentence.setText("This is a sample main sentence. A longer one, actually. Index: [" + i + "]");
-            tempMainSentence.setLanguage("eng");
-            tempMainSentence.setSentenceId( (int)(Math.random()*5000) );
-            tempTranslationCollection = new ArrayList<SentenceModel>();
-
-            // fake the translations to the main sentence
-            for (int j = 0; j < (int)(Math.random()*14); j++)
-            {
-                tempSingleTranslation = new SentenceModel();
-                tempSingleTranslation.setText("And here is a sample translation. "+
-                        "A bit longer this time. And the index: [" + i + ", " + j + "]");
-
-                int tempLanguageIndex = j % 5;
-
-                tempSingleTranslation.setLanguage( languages[tempLanguageIndex] );
-                tempTranslationCollection.add(tempSingleTranslation);
-            }
-
-            translatedSentence = new TranslatedSentenceModel(tempMainSentence, tempTranslationCollection);
-            _translations.add(translatedSentence);
-
-            TatoebaApp appState = ((TatoebaApp)_activity.getApplicationContext());
-            appState.setCurrentTranslations(_translations);
-        }
-          */
+        updateResultsView();
     }
-
-    /*private void initializePagination()
-    {
-
-        List<String> spinnerArray = new ArrayList<String>();
-
-        for (int i = 0; i < 8; i++)
-        {
-            spinnerArray.add(i + "");
-        }
-
-
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(_context, android.R.layout.simple_spinner_item, spinnerArray);
-
-    }*/
 
     public void onTabSelected(Tab tab, FragmentTransaction ft)
     {
@@ -227,7 +162,7 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
     }
 
     @Override
-    public void setRandomFetchResult(TranslatedSentenceModel[] sentences)
+    public void setRandomFetchResult(ArrayList<TranslatedSentenceModel> sentences)
     {
 
         if (sentences == null)
@@ -237,16 +172,14 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
             return;
         }
 
-        _translations = new ArrayList<TranslatedSentenceModel>();
+        _translations = sentences;
         for (TranslatedSentenceModel sentence : sentences)
         {
             Log.d("###", sentence.get_mainSentence().toString());
-            _translations.add(sentence);
         }
 
         _appState.setCurrentTranslations(_translations);
         updateResultsView();
-
     }
 
 
