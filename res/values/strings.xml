@@ -22,7 +22,9 @@
     <string name="fromLanguage">Language:</string>
     <string name="quantity">Quantity:</string>
     <string name="sentenceNumber">Sentence Nº </string>
-
+    <string name="toast_sentenceNotFound">Sentence not found.</string>
+    <string name="toast_sentencesNotFound">Sentences not found.</string>
+    <string name="toast_randomSentencesNotFound">Could not find any random sentences.</string>
 
 
     <string-array name="language_array">

@@ -29,8 +29,8 @@ import java.io.InputStreamReader;
 
 
 /**
- * This class is intended to query the local and the remote tatoeba databases in the background
- * and update the UI correspondingly.
+ * This class is intended to populate the local tatoeba database with the initial values,
+ * taken from a CSV
  */
 //public class QueryTatoebaTask extends AsyncTask<URL, Integer, Long>
 public class InitLocalDataBaseAsyncTask extends AsyncTask<String, Integer, Long>

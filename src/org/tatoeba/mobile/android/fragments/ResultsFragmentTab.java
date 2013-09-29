@@ -9,32 +9,34 @@ package org.tatoeba.mobile.android.fragments;
  */
 
 
-import android.app.*;
+import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import au.com.bytecode.opencsv.CSVParser;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.tatoeba.mobile.android.R;
 import org.tatoeba.mobile.android.MainActivity;
+import org.tatoeba.mobile.android.R;
 import org.tatoeba.mobile.android.SentenceDetailsActivity;
-import org.tatoeba.mobile.android.TatoebaApp;
 import org.tatoeba.mobile.android.enums.INTENT_EXTRAS;
 import org.tatoeba.mobile.android.fragments.enums.MAIN_TABS;
 import org.tatoeba.mobile.android.fragments.enums.SEARCH_ACTIONS;
+import org.tatoeba.mobile.android.fragments.enums.TOAST_MESSAGES;
 import org.tatoeba.mobile.android.models.RandomSentenceRequestModel;
-import org.tatoeba.mobile.android.models.SentenceModel;
 import org.tatoeba.mobile.android.models.TranslatedSentenceModel;
+import org.tatoeba.mobile.android.service.ITatoebaDBCallbackAPI;
+import org.tatoeba.mobile.android.service.local_database.FetchRandomDataBaseAsyncTask;
 import org.tatoeba.mobile.android.service.local_database.QueryTatoebaTask;
 import org.tatoeba.mobile.android.views.search_result.SentenceAdapter;
 
-public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener
+import java.util.ArrayList;
+
+public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar.TabListener, ITatoebaDBCallbackAPI
 {
 
     private MainActivity _mainActivity;
@@ -46,7 +48,6 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
 
 
     private ArrayList<TranslatedSentenceModel> _translations;
-    private Spinner _paginationSpinner;
 
 
 ////////////////////////////////////////////////////////////
@@ -54,22 +55,15 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-
         super.onCreate(savedInstanceState);
 
-
         initialize();
-        //handleSearchString();
 
-        // Getting adapter by passing xml data ArrayList
-        adapter = new SentenceAdapter(_activity, _translations);
+        fetchResults();
+    }
 
-        _resultsListView = new ListView(_activity.getBaseContext());
-
-        _resultsListView = (ListView) _activity.findViewById(R.id.resultList);
-        _resultsListView.setAdapter(adapter);
-
-
+    private void initializeResultItemClickListener()
+    {
         // Click event for single list row
         _resultsListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -77,7 +71,7 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id)
             {
-                Log.d("###", "view id: " + id + ", position: "+position);
+                Log.d("###", "view id: " + id + ", position: " + position);
 
 //                // get the clicked sentence's model
 //                TranslatedSentenceModel translatedSentence =
@@ -90,20 +84,20 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
 
             }
         });
-
-
-        dispatchSearch();
-
     }
 
-    private void dispatchSearch()
+    /**
+     * Checks if there's any sor tof sentence fetching requested.
+     */
+    private void fetchResults()
     {
         MainActivity mainActivity = (MainActivity) getActivity();
         SEARCH_ACTIONS searchAction = mainActivity.get_searchAction();
 
         if (searchAction == null) return;
 
-        showProgressIndication();
+        //showProgressIndication();
+        updateResultsView();
 
         switch (searchAction)
         {
@@ -111,17 +105,22 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
             case FETCH_BY_ID: fetchById(); break;
             case SEARCH: search(); break;
         }
+
+        ///////////////////////////////////////////////////////////////////
+
+        return ;
     }
 
 
     private void initialize()
     {
-        _mainActivity = (MainActivity) _activity;
+        _mainActivity =  _activity;
         _mainActivity.setContentView(R.layout.results_fragment);
 
+        /*
         _translations = new ArrayList<TranslatedSentenceModel>();
 
-        initializePagination();
+      //  initializePagination();
 
         SentenceModel tempMainSentence;
         SentenceModel tempSingleTranslation;
@@ -161,13 +160,11 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
             TatoebaApp appState = ((TatoebaApp)_activity.getApplicationContext());
             appState.setCurrentTranslations(_translations);
         }
-
+          */
     }
 
-    private void initializePagination()
+    /*private void initializePagination()
     {
-        _paginationSpinner = (Spinner) _activity.findViewById(R.id.paginationSpinner);
-
 
         List<String> spinnerArray = new ArrayList<String>();
 
@@ -178,28 +175,9 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
 
 
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(_activity.getBaseContext(), android.R.layout.simple_spinner_item, spinnerArray);
+                new ArrayAdapter<String>(_context, android.R.layout.simple_spinner_item, spinnerArray);
 
-        _paginationSpinner.setAdapter(adapter);
-        _paginationSpinner.setSelection(5);
-
-        _paginationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-            {
-                Log.d("###", "Pagination spinner selected item: " + _paginationSpinner.getSelectedItem());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent)
-            {
-                Log.d("###", "Pagination spinner nothing selected " + _paginationSpinner.getSelectedItem());
-            }
-        });
-
-
-    }
+    }*/
 
     public void onTabSelected(Tab tab, FragmentTransaction ft)
     {
@@ -216,20 +194,14 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         super.onAttach(activity);
     }
 
-    private void showProgressIndication()
-    {
-        _activity.setContentView(R.layout.results_fragment_progress);
-    }
-
-    private void hideProgressIndication()
-    {
-        _activity.setContentView(R.layout.results_fragment);
-    }
 
     private void fetchRandom()
     {
         Log.d("###", "Fetching a random sentence");
         RandomSentenceRequestModel request = _activity.get_randomSentenceRequest();
+        FetchRandomDataBaseAsyncTask asyncTask = new FetchRandomDataBaseAsyncTask( _context );
+        asyncTask.setCallbackAPI(this);
+        asyncTask.execute(request);
     }
 
     private void fetchById()
@@ -254,7 +226,51 @@ public class ResultsFragmentTab extends TatoebaMainFragment implements ActionBar
         // TODO Auto-generated method stub
     }
 
+    @Override
+    public void setRandomFetchResult(TranslatedSentenceModel[] sentences)
+    {
 
+        if (sentences == null)
+        {
+            _appState.showToast(TOAST_MESSAGES.RANDOM_SENTENCES_NOT_FOUND);
+            switchTab(MAIN_TABS.BROWSE);
+            return;
+        }
+
+        _translations = new ArrayList<TranslatedSentenceModel>();
+        for (TranslatedSentenceModel sentence : sentences)
+        {
+            Log.d("###", sentence.get_mainSentence().toString());
+            _translations.add(sentence);
+        }
+
+        _appState.setCurrentTranslations(_translations);
+        updateResultsView();
+
+    }
+
+
+    private void updateResultsView()
+    {
+        _translations = _appState.getCurrentTranslations();
+        // nothing to display, but the progress indicator.
+        if (_translations == null)
+        {
+            _activity.setContentView(R.layout.results_fragment_progress);
+            return;
+        }
+
+        _activity.setContentView(R.layout.results_fragment);
+
+        adapter = new SentenceAdapter(_activity, _translations);
+
+        //_resultsListView = new ListView(_context);
+
+        _resultsListView = (ListView) _activity.findViewById(R.id.resultList);
+
+        _resultsListView.setAdapter(adapter);
+        initializeResultItemClickListener();
+
+    }
 
 }
-

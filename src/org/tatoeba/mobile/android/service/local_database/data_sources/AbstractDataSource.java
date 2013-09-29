@@ -5,8 +5,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import org.tatoeba.mobile.android.service.local_database.TatoebaDBHelper;
-import org.tatoeba.mobile.android.service.local_database.tables.TableLinks;
-import org.tatoeba.mobile.android.service.local_database.tables.TableUsers;
 
 /**
  * Created with IntelliJ IDEA.
@@ -39,7 +37,7 @@ public class AbstractDataSource
         }
     }
 
-    /** Open  the DB session */
+    /** Open the DB session */
     public void open() throws SQLException
     {
         // static DB already opened. Nothing to do.
@@ -69,7 +67,7 @@ public class AbstractDataSource
     protected void checkDataBase()
     {
         if (static_db == null)
-            throw new Error("Database has not been opened for writing!");
+            throw new Error("Database has not been opened (for writing)!");
 
         else if (database == null)
             database = static_db;

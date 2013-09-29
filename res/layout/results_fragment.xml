@@ -23,15 +23,7 @@
                 android:textSize="16dp"
                 android:textStyle="bold"
                 />
-        <Spinner
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:spinnerMode="dropdown"
-                android:minWidth="52dp"
-                android:id="@+id/paginationSpinner"
-                android:prompt="@string/resultCurrentPage"
-                />
+
         <ProgressBar
                 android:id="@+id/pageProgress"
                 style="?android:attr/progressBarStyleSmall"

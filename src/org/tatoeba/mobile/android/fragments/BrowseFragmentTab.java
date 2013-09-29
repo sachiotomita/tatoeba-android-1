@@ -9,10 +9,10 @@ package org.tatoeba.mobile.android.fragments;
  */
 
 
-import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
-import android.app.ActionBar;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -68,6 +68,9 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
 
         // RANDOM SENTENCE
 
+        _randomSrcLangSpinner = (Spinner) _activity.findViewById(R.id.randomSrcLangSpinner);
+        _randomResultsNumberSpinner = (Spinner) _activity.findViewById(R.id.randomResultsNumberSpinner);
+
         _randomFetchButton = (Button) _activity.findViewById(R.id.randomFetchButton);
         _randomFetchButton.setOnClickListener(new View.OnClickListener()
         {
@@ -77,16 +80,10 @@ public class BrowseFragmentTab extends TatoebaMainFragment implements ActionBar.
                 fetchRandomSentence();
             }
         });
-
-        _randomSrcLangSpinner = (Spinner) _activity.findViewById(R.id.randomSrcLangSpinner);
-        _randomResultsNumberSpinner = (Spinner) _activity.findViewById(R.id.randomResultsNumberSpinner);
-
-
     }
 
     private void fetchRandomSentence()
     {
-
         RandomSentenceRequestModel request = new RandomSentenceRequestModel();
 
         String selectedLanguage = _randomSrcLangSpinner.getSelectedItem().toString();
